@@ -19,10 +19,15 @@ public class SecurityService implements ISecurityService {
 
     @Transactional
     public void CreatePerson(Person person, Person person2) {
-        System.setProperty("methodName", "CreatePerson");
-
         Person personCreated2 = this.personRepository.createAndGetPersonCreated(person);
 
         int personCreated1 = this.personRepository.createPerson(person2);
+    }
+
+    public void UpdatePerson(Person person) {
+    }
+
+    public void DeletePerson() {
+        String methodName = System.getProperty("methodName");
     }
 }

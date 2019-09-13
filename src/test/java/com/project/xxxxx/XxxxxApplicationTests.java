@@ -100,5 +100,21 @@ public class XxxxxApplicationTests {
                 "5577078",
                 "wgutierrez",
                 null));
+
+
+        this.securityService.UpdatePerson(new Person(0,
+                        "Angelona",
+                        "Tejeda",
+                        "Ramos",
+                        true,
+                        new Date(2019, 03, 15),
+                        "73676494",
+                        "w.felipe.gutierrez@gmail.com",
+                        "994518203",
+                        "5577078",
+                        "wgutierrez",
+                        null));
+
+        this.securityService.DeletePerson();
     }
 }
