@@ -1,34 +1,98 @@
 package com.project.xxxxx.model;
 
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.authority.SimpleGrantedAuthority;
+import org.springframework.security.core.userdetails.UserDetails;
 import java.sql.Date;
+import java.time.LocalDate;
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.List;
 
-@Getter
-@Setter
-@AllArgsConstructor
-@NoArgsConstructor
-public class User {
-    private int Id;
-    private String Username;
-    private String Password;
-    private int IdPerson;
-    private String Role;
-    private String UserRegister;
-    private Date TimeStamp;
+public class User implements UserDetails {
+    private final int Id;
+    private final String Username;
+    private final String Password;
+    private final int IdPerson;
+    private final String UserRegister;
+    private final LocalDate TimeStamp;
+    private final Collection<? extends GrantedAuthority> authorities;
+
+    public User(int Id,
+                int idPerson,
+                Date timeStamp,
+                String username,
+                String password,
+                String role,
+                String userRegister) {
+        this.Id = Id;
+        this.Username = username;
+        this.Password = password;
+        this.IdPerson = idPerson;
+        this.UserRegister = userRegister;
+        this.TimeStamp = timeStamp.toLocalDate();
+
+        List<SimpleGrantedAuthority> authorities = new ArrayList<SimpleGrantedAuthority>();
+        authorities.add(new SimpleGrantedAuthority(role));
+
+        this.authorities = authorities;
+    }
 
     @Override
     public String toString() {
-        return "User{" +
+        return "JwtUserDetails{" +
                 "Id=" + Id +
                 ", Username='" + Username + '\'' +
                 ", Password='" + Password + '\'' +
                 ", IdPerson=" + IdPerson +
-                ", IdRole=" + Role +
                 ", UserRegister='" + UserRegister + '\'' +
                 ", TimeStamp=" + TimeStamp +
+                ", authorities=" + authorities +
                 '}';
+    }
+
+    @JsonIgnore
+    public int getId() {
+        return Id;
+    }
+
+    @Override
+    public String getUsername() {
+        return this.Username;
+    }
+
+    @JsonIgnore
+    @Override
+    public boolean isAccountNonExpired() {
+        return true;
+    }
+
+    @JsonIgnore
+    @Override
+    public boolean isAccountNonLocked() {
+        return true;
+    }
+
+    @JsonIgnore
+    @Override
+    public boolean isCredentialsNonExpired() {
+        return true;
+    }
+
+    @JsonIgnore
+    @Override
+    public String getPassword() {
+        return this.Password;
+    }
+
+    @Override
+    public Collection<? extends GrantedAuthority> getAuthorities() {
+        return authorities;
+    }
+
+    @Override
+    public boolean isEnabled() {
+        return true;
     }
 }

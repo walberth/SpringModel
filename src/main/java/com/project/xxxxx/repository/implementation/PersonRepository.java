@@ -12,12 +12,10 @@ import java.util.List;
 
 @Repository("PersonRepository")
 public class PersonRepository implements IPersonRepository {
-    private JdbcOperations jdbcOperations;
     private JdbcTemplate jdbcTemplate;
 
     @Autowired
-    public PersonRepository(JdbcOperations jdbcOperations, JdbcTemplate jdbcTemplate) {
-        this.jdbcOperations = jdbcOperations;
+    public PersonRepository(JdbcTemplate jdbcTemplate) {
         this.jdbcTemplate = jdbcTemplate;
     }
 
