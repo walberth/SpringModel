@@ -20,10 +20,18 @@ public class RequestInterceptor extends HandlerInterceptorAdapter {
         System.setProperty("machineName", InetAddress.getLocalHost().getHostName());
 
         if(request.getMethod().equals("GET")) {
-            System.setProperty("payload", request.getQueryString());
+            String queryString = request.getQueryString();
+
+            if(queryString != null) {
+                System.setProperty("payload", request.getQueryString());
+            }
         }
 
-        System.setProperty("username", request.getParameter("username"));
+        String username = request.getParameter("username");
+
+        if(username != null) {
+            System.setProperty("username", request.getParameter("username"));
+        }
 
         return true;
     }

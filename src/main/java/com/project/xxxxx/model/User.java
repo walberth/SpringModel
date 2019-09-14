@@ -15,7 +15,7 @@ public class User {
     private String Username;
     private String Password;
     private int IdPerson;
-    private int IdRole;
+    private String Role;
     private String UserRegister;
     private Date TimeStamp;
 
@@ -26,7 +26,7 @@ public class User {
                 ", Username='" + Username + '\'' +
                 ", Password='" + Password + '\'' +
                 ", IdPerson=" + IdPerson +
-                ", IdRole=" + IdRole +
+                ", IdRole=" + Role +
                 ", UserRegister='" + UserRegister + '\'' +
                 ", TimeStamp=" + TimeStamp +
                 '}';

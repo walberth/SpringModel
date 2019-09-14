@@ -1,0 +1,16 @@
+2019-09-14 01:22:49,868 WARN c.p.x.c.j.JwtTokenAuthorizationOncePerRequestFilter [${sys:idRequest}] | Message: JWT_TOKEN_DOES_NOT_START_WITH_BEARER_STRING | Payload: ${sys:payload} 
+ CallSite: ${sys:callSite} | Action: ${sys:action} | MethodName: ${sys:methodName} 
+ 
+
+2019-09-14 01:32:35,066 WARN c.p.x.c.j.JwtTokenAuthorizationOncePerRequestFilter [${sys:idRequest}] | Message: JWT_TOKEN_DOES_NOT_START_WITH_BEARER_STRING | Payload: ${sys:payload} 
+ CallSite: /error | Action: error | MethodName: ${sys:methodName} 
+ 
+
+2019-09-14 01:33:54,397 WARN c.p.x.c.j.JwtTokenAuthorizationOncePerRequestFilter [${sys:idRequest}] | Message: JWT_TOKEN_DOES_NOT_START_WITH_BEARER_STRING | Payload: ${sys:payload} 
+ CallSite: /error | Action: error | MethodName: ${sys:methodName} 
+ 
+
+2019-09-14 01:36:40,457 WARN c.p.x.c.j.JwtTokenAuthorizationOncePerRequestFilter [${sys:idRequest}] | Message: JWT_TOKEN_DOES_NOT_START_WITH_BEARER_STRING | Payload: ${sys:payload} 
+ CallSite: /error | Action: error | MethodName: ${sys:methodName} 
+ 
+

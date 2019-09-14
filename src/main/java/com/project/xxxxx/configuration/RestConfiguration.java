@@ -10,7 +10,7 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
 @Aspect
 @Configuration
-public class RestConfiguration implements WebMvcConfigurer {
+public class RestConfiguration  implements WebMvcConfigurer {
     @Autowired
     private RequestInterceptor interceptor;
 
