@@ -42,7 +42,7 @@ public class User implements UserDetails {
                 ", UserRegister='" + UserRegister + '\'' +
                 ", TimeStamp=" + TimeStamp +
                 ", Active=" + Active +
-                ", authorities=" + Authority +
+                ", Authority='" + Authority + '\'' +
                 '}';
     }
 

@@ -23,13 +23,13 @@ public class UserRepository implements IUserRepository {
                     password),
                     (rs, rowNum) ->
                             new User(rs.getInt("id"),
-                                    rs.getString("username"),
-                                    rs.getString("password"),
-                                    rs.getInt("idPerson"),
-                                    rs.getString("userRegister"),
-                                    rs.getDate("timeStamp").toLocalDate(),
-                                    rs.getBoolean("active"),
-                                    rs.getString("role")));
+                                     rs.getString("username"),
+                                     rs.getString("password"),
+                                     rs.getInt("idPerson"),
+                                     rs.getString("userRegister"),
+                                     rs.getDate("timeStamp").toLocalDate(),
+                                     rs.getBoolean("active"),
+                                     rs.getString("role")));
         } catch(EmptyResultDataAccessException ex) {
             return null;
         }
@@ -41,7 +41,7 @@ public class UserRepository implements IUserRepository {
                     username),
                     (rs, rowNum) ->
                             new User(rs.getString("username"),
-                                    rs.getString("role")));
+                                     rs.getString("role")));
         } catch(EmptyResultDataAccessException ex) {
             return null;
         }

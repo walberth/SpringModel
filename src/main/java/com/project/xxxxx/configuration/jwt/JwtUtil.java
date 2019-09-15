@@ -35,7 +35,7 @@ public class JwtUtil implements Serializable {
         return getClaimFromToken(token, Claims::getIssuedAt);
     }
 
-    private Date getExpirationDateFromToken(String token) {
+    public Date getExpirationDateFromToken(String token) {
         return getClaimFromToken(token, Claims::getExpiration);
     }
 

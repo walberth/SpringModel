@@ -1,25 +1,28 @@
 package com.project.xxxxx.service.implementation;
 
 import com.project.xxxxx.configuration.jwt.JwtUtil;
-import com.project.xxxxx.model.JwtRequest;
-import com.project.xxxxx.model.JwtResponse;
-import com.project.xxxxx.model.Person;
-import com.project.xxxxx.model.User;
+import com.project.xxxxx.model.*;
 import com.project.xxxxx.repository.IPersonRepository;
+import com.project.xxxxx.repository.ISessionRepository;
 import com.project.xxxxx.repository.IUserRepository;
 import com.project.xxxxx.service.ISecurityService;
 import com.project.xxxxx.transversal.Response;
+import com.project.xxxxx.transversal.TimeHelper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.mail.SimpleMailMessage;
 import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.security.authentication.AuthenticationManager;
+import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+
+import java.util.Date;
 
 @Service("SecurityService")
 public class SecurityService implements ISecurityService {
     private IPersonRepository personRepository;
     private IUserRepository userRepository;
+    private ISessionRepository sessionRepository;
     private JavaMailSender emailSender;
     private AuthenticationManager authenticationManager;
     private JwtUtil jwtUtil;
@@ -29,9 +32,11 @@ public class SecurityService implements ISecurityService {
                            AuthenticationManager authenticationManager,
                            JavaMailSender emailSender,
                            JwtUtil jwtUtil,
+                           ISessionRepository sessionRepository,
                            IUserRepository userRepository){
         this.personRepository = personRepository;
         this.emailSender = emailSender;
+        this.sessionRepository = sessionRepository;
         this.userRepository = userRepository;
         this.jwtUtil = jwtUtil;
         this.authenticationManager = authenticationManager;
@@ -84,9 +89,17 @@ public class SecurityService implements ISecurityService {
             return response;
         }
 
-        final String token = jwtUtil.generateToken(userInformation);
+        final String token = this.jwtUtil.generateToken(userInformation);
 
-        // TODO: CREAR LA SESION EN LA BASE DE DATOS
+        this.sessionRepository.deleteSession(userInformation.getUsername());
+
+        Integer sessionCreated = this.sessionRepository.createSession(this.getSessionInformation(token, userInformation));
+
+        if(sessionCreated == null || sessionCreated.equals(0)) {
+            response.setMessage("Can't be created the session");
+
+            return response;
+        }
 
         response.setData(new JwtResponse(token));
         response.setIsWarning(false);
@@ -108,6 +121,8 @@ public class SecurityService implements ISecurityService {
 
                 return response;
             }
+
+            this.updateSession(refreshedToken);
         } else {
             response.setMessage("Can't refresh token");
 
@@ -124,5 +139,25 @@ public class SecurityService implements ISecurityService {
     @Transactional
     public Response<User> create(Person person, String username) {
         return null;
+    }
+
+    private Session getSessionInformation(String token, User userInformation){
+        Date created = this.jwtUtil.getIssuedAtDateFromToken(token);
+        Date expired = this.jwtUtil.getExpirationDateFromToken(token);
+
+        Session session = new Session();
+        session.setIdUser(userInformation.getId());
+        session.setToken(token);
+        session.setTimeToRelease((expired.getTime() - created.getTime())/1000);
+        session.setExpirationTime(TimeHelper.convertToLocalDateTimeViaInstant(expired));
+
+        return session;
+    }
+
+    private void updateSession(String refreshedToken) {
+        Date expired = this.jwtUtil.getExpirationDateFromToken(refreshedToken);
+        this.sessionRepository.updateSession(this.jwtUtil.getUsernameFromToken(refreshedToken),
+                                             refreshedToken,
+                                             TimeHelper.convertToLocalDateTimeViaInstant(expired));
     }
 }

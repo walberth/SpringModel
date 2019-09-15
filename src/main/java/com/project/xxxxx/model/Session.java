@@ -4,7 +4,7 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
-import java.sql.Date;
+import java.time.LocalDateTime;
 
 @Getter
 @Setter
@@ -14,8 +14,8 @@ public class Session {
     private int Id;
     private int IdUser;
     private String Token;
-    private String TimeToRelease;
-    private Date ExpirationTime;
+    private long TimeToRelease;
+    private LocalDateTime ExpirationTime;
 
     @Override
     public String toString() {

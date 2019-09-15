@@ -26,13 +26,13 @@ public class PersonRepository implements IPersonRepository {
                            rs.getString("fatherLastName"),
                            rs.getString("motherLastName"),
                            rs.getBoolean("sex"),
-                           rs.getDate("birthDate"),
+                           rs.getDate("birthDate").toLocalDate(),
                            rs.getString("document"),
                            rs.getString("email"),
                            rs.getString("telephone"),
                            rs.getString("mobile"),
                            rs.getString("userRegister"),
-                           rs.getDate("timeStamp")));
+                           rs.getDate("timeStamp").toLocalDate()));
     }
 
     public List<Person> getPersonList(int rowsPerPage, int pageNumber) {
@@ -42,13 +42,13 @@ public class PersonRepository implements IPersonRepository {
                         rs.getString("fatherLastName"),
                         rs.getString("motherLastName"),
                         rs.getBoolean("sex"),
-                        rs.getDate("birthDate"),
+                        rs.getDate("birthDate").toLocalDate(),
                         rs.getString("document"),
                         rs.getString("email"),
                         rs.getString("telephone"),
                         rs.getString("mobile"),
                         rs.getString("userRegister"),
-                        rs.getDate("timeStamp")));
+                        rs.getDate("timeStamp").toLocalDate()));
     }
 
     public List<Person> getPersonListByRowMapper(int rowsPerPage, int pageNumber) {

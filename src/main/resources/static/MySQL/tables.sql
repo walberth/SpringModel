@@ -89,8 +89,8 @@ CREATE TABLE IF NOT EXISTS `xxxxx`.`session` (
   `id` INT NOT NULL AUTO_INCREMENT,
   `user_id` INT NOT NULL,
   `token` TEXT NOT NULL,
-  `time_release` VARCHAR(50) NULL,
-  `expiration_time` DATETIME NULL,
+  `time_release` BIGINT NOT NULL,
+  `expiration_time` DATETIME NOT NULL,
   INDEX `session_fk1_idx` (`user_id` ASC) VISIBLE,
   CONSTRAINT `session_fk0`
     FOREIGN KEY (`user_id`)
