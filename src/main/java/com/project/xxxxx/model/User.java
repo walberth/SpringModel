@@ -17,6 +17,7 @@ public class User implements UserDetails {
     private final int IdPerson;
     private final String UserRegister;
     private final LocalDate TimeStamp;
+    private final boolean Active;
     private final Collection<? extends GrantedAuthority> authorities;
 
     public User(int Id,
@@ -25,11 +26,13 @@ public class User implements UserDetails {
                 String username,
                 String password,
                 String role,
+                boolean active,
                 String userRegister) {
         this.Id = Id;
         this.Username = username;
         this.Password = password;
         this.IdPerson = idPerson;
+        this.Active = active;
         this.UserRegister = userRegister;
         this.TimeStamp = timeStamp.toLocalDate();
 
@@ -41,13 +44,14 @@ public class User implements UserDetails {
 
     @Override
     public String toString() {
-        return "JwtUserDetails{" +
+        return "User{" +
                 "Id=" + Id +
                 ", Username='" + Username + '\'' +
                 ", Password='" + Password + '\'' +
                 ", IdPerson=" + IdPerson +
                 ", UserRegister='" + UserRegister + '\'' +
                 ", TimeStamp=" + TimeStamp +
+                ", Active=" + Active +
                 ", authorities=" + authorities +
                 '}';
     }
@@ -93,6 +97,6 @@ public class User implements UserDetails {
 
     @Override
     public boolean isEnabled() {
-        return true;
+        return this.Active;
     }
 }
