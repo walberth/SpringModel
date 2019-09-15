@@ -85,11 +85,17 @@ public class SecurityService implements ISecurityService, UserDetailsService {
     public Response<JwtResponse> createAuthenticationToken(JwtRequest request) {
         Response<JwtResponse> response = new Response<>();
 
-        authenticate(request.getUsername(), request.getPassword());
+        Response<UserDetails> authenticated = authenticate(request.getUsername(), request.getPassword());
+
+        if(authenticated.isIsWarning()) {
+            response.setMessage(authenticated.getMessage());
+
+            return response;
+        }
 
         //final UserDetails userDetails = userDetailsService.loadUserByUsername(request.getUsername());
 
-        final String token = jwtUtil.generateToken(null);
+        final String token = jwtUtil.generateToken(authenticated.getData());
 
         response.setData(new JwtResponse(token));
         response.setIsWarning(false);
@@ -97,16 +103,32 @@ public class SecurityService implements ISecurityService, UserDetailsService {
         return response;
     }
 
-    private void authenticate(String username, String password) {
-        Objects.requireNonNull(username);
-        Objects.requireNonNull(password);
+    private Response<UserDetails> authenticate(String username, String password) {
+        Response<UserDetails> response = new Response<>();
 
-        try {
-            authenticationManager.authenticate(new UsernamePasswordAuthenticationToken(username, password));
-        } catch (DisabledException e) {
-            throw new DisabledException("USER_DISABLED", e);
-        } catch (BadCredentialsException e) {
-            throw new BadCredentialsException("INVALID_CREDENTIALS", e);
+        if(username.equals("") || password.equals("")) {
+            response.setMessage("Must be indicate user and password");
+
+            return response;
         }
+
+        User userInformation = this.userRepository.getUserInformation(username, password);
+
+        if(userInformation == null) {
+            response.setMessage("Invalid Credentials");
+
+            return response;
+        }
+
+        if(!userInformation.isEnabled()) {
+            response.setMessage("User Disabled");
+
+            return response;
+        }
+
+        response.setData(userInformation);
+        response.setIsWarning(false);
+
+        return response;
     }
 }

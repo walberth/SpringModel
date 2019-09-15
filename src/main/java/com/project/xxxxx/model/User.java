@@ -1,26 +1,33 @@
 package com.project.xxxxx.model;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
-import java.sql.Date;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 
+@Getter
+@Setter
+@AllArgsConstructor
+@NoArgsConstructor
 public class User implements UserDetails {
-    private final int Id;
-    private final String Username;
-    private final String Password;
-    private final int IdPerson;
-    private final String UserRegister;
-    private final LocalDate TimeStamp;
-    private final boolean Active;
-    private final Collection<? extends GrantedAuthority> authorities;
+    private int Id;
+    private String Username;
+    private String Password;
+    private int IdPerson;
+    private String UserRegister;
+    private LocalDate TimeStamp;
+    private boolean Active;
+    private String Authority;
 
-    public User(int Id,
+    /*public User(int Id,
                 int idPerson,
                 Date timeStamp,
                 String username,
@@ -40,7 +47,7 @@ public class User implements UserDetails {
         authorities.add(new SimpleGrantedAuthority(role));
 
         this.authorities = authorities;
-    }
+    }*/
 
     @Override
     public String toString() {
@@ -52,13 +59,13 @@ public class User implements UserDetails {
                 ", UserRegister='" + UserRegister + '\'' +
                 ", TimeStamp=" + TimeStamp +
                 ", Active=" + Active +
-                ", authorities=" + authorities +
+                ", authorities=" + Authority +
                 '}';
     }
 
     @JsonIgnore
     public int getId() {
-        return Id;
+        return this.Id;
     }
 
     @Override
@@ -92,6 +99,8 @@ public class User implements UserDetails {
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
+        List<SimpleGrantedAuthority> authorities = new ArrayList<SimpleGrantedAuthority>();
+        authorities.add(new SimpleGrantedAuthority(this.Authority));
         return authorities;
     }
 
