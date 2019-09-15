@@ -2,6 +2,7 @@ package com.project.xxxxx.configuration;
 
 import com.project.xxxxx.configuration.jwt.JwtTokenAuthorizationOncePerRequestFilter;
 import com.project.xxxxx.configuration.jwt.JwtUnAuthorizedResponseAuthenticationEntryPoint;
+import com.project.xxxxx.service.ISecurityService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
@@ -25,8 +26,8 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
     @Autowired
     private JwtUnAuthorizedResponseAuthenticationEntryPoint jwtUnAuthorizedResponseAuthenticationEntryPoint;
 
-    @Autowired
-    private UserDetailsService jwtInMemoryUserDetailsService;
+    //@Autowired
+    //private ISecurityService jwtInMemoryUserDetailsService;
 
     @Autowired
     private JwtTokenAuthorizationOncePerRequestFilter jwtAuthenticationTokenFilter;
@@ -36,7 +37,7 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 
     @Autowired
     public void configureGlobal(AuthenticationManagerBuilder auth) throws Exception {
-        auth.userDetailsService(jwtInMemoryUserDetailsService).passwordEncoder(passwordEncoderBean());
+        //auth.userDetailsService(jwtInMemoryUserDetailsService).passwordEncoder(passwordEncoderBean());
     }
 
     @Bean
@@ -60,9 +61,6 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
                 .authenticated();
 
         httpSecurity.addFilterBefore(jwtAuthenticationTokenFilter, UsernamePasswordAuthenticationFilter.class);
-
-        /*httpSecurity.headers().frameOptions().sameOrigin() // H2 Console Needs this setting
-                .cacheControl(); // disable caching*/
     }
 
     @Override
@@ -74,16 +72,4 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
                 ).and().ignoring()
                 .antMatchers("/h2-console/**/**");// Should not be done in Production!
     }
-
-    /*@Override
-    protected void configure(HttpSecurity http) throws Exception {
-        http
-            .csrf().disable()
-            .authorizeRequests()
-            .antMatchers(HttpMethod.OPTIONS,"/**").permitAll()
-                .anyRequest().authenticated()
-                .and()
-            //.formLogin().and()
-            .httpBasic();
-    }*/
 }

@@ -32,19 +32,19 @@ public class SecurityService implements ISecurityService, UserDetailsService {
     private JavaMailSender emailSender;
     private AuthenticationManager authenticationManager;
     private JwtUtil jwtUtil;
-    private UserDetailsService userDetailsService;
+    //private UserDetailsService userDetailsService;
 
     @Autowired
     public SecurityService(IPersonRepository personRepository,
                            AuthenticationManager authenticationManager,
                            JavaMailSender emailSender,
-                           @Qualifier("SecurityService") UserDetailsService userDetailsService,
+                          // @Qualifier("SecurityService") UserDetailsService userDetailsService,
                            JwtUtil jwtUtil,
                            IUserRepository userRepository){
         this.personRepository = personRepository;
         this.emailSender = emailSender;
         this.userRepository = userRepository;
-        this.userDetailsService = userDetailsService;
+        //his.userDetailsService = userDetailsService;
         this.jwtUtil = jwtUtil;
         this.authenticationManager = authenticationManager;
     }
@@ -87,9 +87,9 @@ public class SecurityService implements ISecurityService, UserDetailsService {
 
         authenticate(request.getUsername(), request.getPassword());
 
-        final UserDetails userDetails = userDetailsService.loadUserByUsername(request.getUsername());
+        //final UserDetails userDetails = userDetailsService.loadUserByUsername(request.getUsername());
 
-        final String token = jwtUtil.generateToken(userDetails);
+        final String token = jwtUtil.generateToken(null);
 
         response.setData(new JwtResponse(token));
         response.setIsWarning(false);

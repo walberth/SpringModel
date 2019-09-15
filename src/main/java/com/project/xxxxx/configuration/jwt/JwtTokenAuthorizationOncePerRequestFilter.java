@@ -19,8 +19,8 @@ import io.jsonwebtoken.ExpiredJwtException;
 
 @Component
 public class JwtTokenAuthorizationOncePerRequestFilter extends OncePerRequestFilter {
-    @Autowired
-    private UserDetailsService jwtInMemoryUserDetailsService;
+    //@Autowired
+    //private UserDetailsService jwtInMemoryUserDetailsService;
 
     @Autowired
     private JwtUtil jwtUtil;
@@ -49,7 +49,7 @@ public class JwtTokenAuthorizationOncePerRequestFilter extends OncePerRequestFil
 
         if (username != null && SecurityContextHolder.getContext().getAuthentication() == null) {
 
-            UserDetails userDetails = this.jwtInMemoryUserDetailsService.loadUserByUsername(username);
+           /* UserDetails userDetails = this.jwtInMemoryUserDetailsService.loadUserByUsername(username);
 
             if (jwtUtil.validateToken(jwtToken, userDetails)) {
                 UsernamePasswordAuthenticationToken usernamePasswordAuthenticationToken = new UsernamePasswordAuthenticationToken(
@@ -57,7 +57,7 @@ public class JwtTokenAuthorizationOncePerRequestFilter extends OncePerRequestFil
                 usernamePasswordAuthenticationToken
                         .setDetails(new WebAuthenticationDetailsSource().buildDetails(request));
                 SecurityContextHolder.getContext().setAuthentication(usernamePasswordAuthenticationToken);
-            }
+            }*/
         }
 
         chain.doFilter(request, response);
