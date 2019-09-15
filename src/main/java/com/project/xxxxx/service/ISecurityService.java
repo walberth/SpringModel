@@ -3,6 +3,7 @@ package com.project.xxxxx.service;
 import com.project.xxxxx.model.JwtRequest;
 import com.project.xxxxx.model.JwtResponse;
 import com.project.xxxxx.model.Person;
+import com.project.xxxxx.model.User;
 import com.project.xxxxx.transversal.Response;
 
 public interface ISecurityService {
@@ -12,4 +13,5 @@ public interface ISecurityService {
     void sendSimpleMessage(String to, String subject, String text);
     Response<JwtResponse> authenticate(JwtRequest request);
     Response<JwtResponse> refresh(String token);
+    Response<User> create(Person person, String username);
 }

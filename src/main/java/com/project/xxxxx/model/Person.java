@@ -4,7 +4,7 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
-import java.sql.Date;
+import java.time.LocalDate;
 
 @Getter
 @Setter
@@ -16,13 +16,13 @@ public class Person {
     private String FatherLastName;
     private String MotherLastName;
     private Boolean Sex;
-    private Date BirthDate;
+    private LocalDate BirthDate;
     private String Document;
     private String Email;
     private String Mobile;
     private String Telephone;
     private String UserRegister;
-    private Date TimeStamp;
+    private LocalDate TimeStamp;
 
     @Override
     public String toString() {

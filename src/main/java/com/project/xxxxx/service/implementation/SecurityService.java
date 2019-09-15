@@ -13,7 +13,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.mail.SimpleMailMessage;
 import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.security.authentication.AuthenticationManager;
-import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -60,6 +59,8 @@ public class SecurityService implements ISecurityService {
         this.emailSender.send(message);
     }
 
+    @Override
+    @Transactional
     public Response<JwtResponse> authenticate(JwtRequest request) {
         Response<JwtResponse> response = new Response<>();
 
@@ -85,12 +86,16 @@ public class SecurityService implements ISecurityService {
 
         final String token = jwtUtil.generateToken(userInformation);
 
+        // TODO: CREAR LA SESION EN LA BASE DE DATOS
+
         response.setData(new JwtResponse(token));
         response.setIsWarning(false);
 
         return response;
     }
 
+    @Override
+    @Transactional
     public Response<JwtResponse> refresh(String token) {
         Response<JwtResponse> response = new Response<>();
         String refreshedToken = "";
@@ -113,5 +118,11 @@ public class SecurityService implements ISecurityService {
         response.setIsWarning(false);
 
         return response;
+    }
+
+    @Override
+    @Transactional
+    public Response<User> create(Person person, String username) {
+        return null;
     }
 }

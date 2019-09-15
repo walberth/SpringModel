@@ -2,6 +2,8 @@ package com.project.xxxxx.controller;
 
 import com.project.xxxxx.model.JwtRequest;
 import com.project.xxxxx.model.JwtResponse;
+import com.project.xxxxx.model.Person;
+import com.project.xxxxx.model.User;
 import com.project.xxxxx.service.ISecurityService;
 import com.project.xxxxx.transversal.Response;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -31,8 +33,8 @@ public class SecurityController {
         return this.securityService.refresh(request.getHeader(tokenHeader).substring(7));
     }
 
-    @GetMapping("/getTest")
-    public String getTest() {
-        return "Hola Mundo";
+    @PostMapping("/create")
+    public Response<User> create(@RequestBody Person person, @RequestParam(value="username") String username) {
+        return this.securityService.create(person, username);
     }
 }
