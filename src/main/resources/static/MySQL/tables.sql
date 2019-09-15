@@ -62,6 +62,7 @@ CREATE TABLE IF NOT EXISTS `xxxxx`.`user` (
   `password` TEXT NULL,
   `person_id` INT NOT NULL,
   `role_id` INT NOT NULL,
+  `active` TINYINT NOT NULL DEFAULT 1,
   `user_register` VARCHAR(20) NOT NULL,
   `time_stamp` DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
   INDEX `user_fk1_idx` (`person_id` ASC) VISIBLE,

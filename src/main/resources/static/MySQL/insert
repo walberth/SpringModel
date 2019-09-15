@@ -37,9 +37,11 @@ INSERT INTO xxxxx.user (username,
                         password,
                         person_id,
                         role_id,
+                        active,
                         user_register)
 VALUES ('wgutierrez',
         'omarjc',
+        1,
         1,
         1,
         'wgutierrez');
