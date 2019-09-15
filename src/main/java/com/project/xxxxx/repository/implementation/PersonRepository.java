@@ -3,6 +3,7 @@ package com.project.xxxxx.repository.implementation;
 import com.project.xxxxx.model.Person;
 import com.project.xxxxx.repository.IPersonRepository;
 import com.project.xxxxx.repository.mapper.PersonRowMapper;
+import com.project.xxxxx.transversal.TimeHelper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.jdbc.core.JdbcOperations;
@@ -32,7 +33,7 @@ public class PersonRepository implements IPersonRepository {
                            rs.getString("telephone"),
                            rs.getString("mobile"),
                            rs.getString("userRegister"),
-                           rs.getDate("timeStamp").toLocalDate()));
+                           TimeHelper.convertToLocalDateTimeViaInstant(rs.getDate("timeStamp"))));
     }
 
     public List<Person> getPersonList(int rowsPerPage, int pageNumber) {
@@ -48,7 +49,7 @@ public class PersonRepository implements IPersonRepository {
                         rs.getString("telephone"),
                         rs.getString("mobile"),
                         rs.getString("userRegister"),
-                        rs.getDate("timeStamp").toLocalDate()));
+                        TimeHelper.convertToLocalDateTimeViaInstant(rs.getDate("timeStamp"))));
     }
 
     public List<Person> getPersonListByRowMapper(int rowsPerPage, int pageNumber) {

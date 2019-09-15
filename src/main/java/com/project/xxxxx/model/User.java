@@ -8,7 +8,7 @@ import lombok.Setter;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
-import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
@@ -23,7 +23,7 @@ public class User implements UserDetails {
     private String Password;
     private int IdPerson;
     private String UserRegister;
-    private LocalDate TimeStamp;
+    private LocalDateTime TimeStamp;
     private boolean Active;
     private String Authority;
 

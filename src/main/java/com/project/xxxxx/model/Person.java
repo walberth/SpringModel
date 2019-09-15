@@ -5,6 +5,7 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 
 @Getter
 @Setter
@@ -22,7 +23,7 @@ public class Person {
     private String Mobile;
     private String Telephone;
     private String UserRegister;
-    private LocalDate TimeStamp;
+    private LocalDateTime TimeStamp;
 
     @Override
     public String toString() {

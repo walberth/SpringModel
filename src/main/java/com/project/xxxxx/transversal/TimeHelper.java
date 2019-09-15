@@ -17,4 +17,8 @@ public class TimeHelper {
                 .atZone(ZoneId.systemDefault())
                 .toLocalDateTime();
     }
+
+    public static LocalDate convertToLocalDateViaSqlDate(Date dateToConvert) {
+        return new java.sql.Date(dateToConvert.getTime()).toLocalDate();
+    }
 }

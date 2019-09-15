@@ -6,16 +6,16 @@ import com.project.xxxxx.repository.IPersonRepository;
 import com.project.xxxxx.repository.ISessionRepository;
 import com.project.xxxxx.repository.IUserRepository;
 import com.project.xxxxx.service.ISecurityService;
+import com.project.xxxxx.transversal.Constant;
+import com.project.xxxxx.transversal.Message;
 import com.project.xxxxx.transversal.Response;
 import com.project.xxxxx.transversal.TimeHelper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.mail.SimpleMailMessage;
 import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.security.authentication.AuthenticationManager;
-import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
-
 import java.util.Date;
 
 @Service("SecurityService")
@@ -69,8 +69,8 @@ public class SecurityService implements ISecurityService {
     public Response<JwtResponse> authenticate(JwtRequest request) {
         Response<JwtResponse> response = new Response<>();
 
-        if(request.getUsername().equals("") || request.getPassword().equals("")) {
-            response.setMessage("Must be indicate user and password");
+        if(request.getUsername().equals(Constant.Empty) || request.getPassword().equals(Constant.Empty)) {
+            response.setMessage(Message.IndicarUsuarioContrasena);
 
             return response;
         }
@@ -78,13 +78,13 @@ public class SecurityService implements ISecurityService {
         User userInformation = this.userRepository.getUserInformation(request.getUsername(), request.getPassword());
 
         if(userInformation == null) {
-            response.setMessage("User Not Found");
+            response.setMessage(Message.UsuarioNoEncontrado);
 
             return response;
         }
 
         if(!userInformation.isEnabled()) {
-            response.setMessage("User Disabled");
+            response.setMessage(Message.UsuarioDeshabilitado);
 
             return response;
         }
@@ -96,7 +96,7 @@ public class SecurityService implements ISecurityService {
         Integer sessionCreated = this.sessionRepository.createSession(this.getSessionInformation(token, userInformation));
 
         if(sessionCreated == null || sessionCreated.equals(0)) {
-            response.setMessage("Can't be created the session");
+            response.setMessage(Message.NoSePuedeCrearSesion);
 
             return response;
         }
@@ -116,15 +116,15 @@ public class SecurityService implements ISecurityService {
         if (this.jwtUtil.canTokenBeRefreshed(token)) {
             refreshedToken = this.jwtUtil.refreshToken(token);
 
-            if(refreshedToken.equals("")) {
-                response.setMessage("Error when refresh token");
+            if(refreshedToken.equals(Constant.Empty)) {
+                response.setMessage(Message.ErrorRefrescarToken);
 
                 return response;
             }
 
             this.updateSession(refreshedToken);
         } else {
-            response.setMessage("Can't refresh token");
+            response.setMessage(Message.NoSePuedeRefrescarToken);
 
             return response;
         }

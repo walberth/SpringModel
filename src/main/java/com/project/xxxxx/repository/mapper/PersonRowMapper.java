@@ -1,6 +1,7 @@
 package com.project.xxxxx.repository.mapper;
 
 import com.project.xxxxx.model.Person;
+import com.project.xxxxx.transversal.TimeHelper;
 import org.springframework.jdbc.core.RowMapper;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -20,7 +21,7 @@ public class PersonRowMapper implements RowMapper<Person> {
         person.setTelephone(rs.getString("telephone"));
         person.setMobile(rs.getString("mobile"));
         person.setUserRegister(rs.getString("userRegister"));
-        person.setTimeStamp(rs.getDate("timeStamp").toLocalDate());
+        person.setTimeStamp(TimeHelper.convertToLocalDateTimeViaInstant(rs.getDate("timeStamp")));
 
         return person;
     }

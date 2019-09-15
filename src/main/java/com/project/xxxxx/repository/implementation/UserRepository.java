@@ -2,6 +2,7 @@ package com.project.xxxxx.repository.implementation;
 
 import com.project.xxxxx.model.User;
 import com.project.xxxxx.repository.IUserRepository;
+import com.project.xxxxx.transversal.TimeHelper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.jdbc.core.JdbcTemplate;
@@ -27,7 +28,7 @@ public class UserRepository implements IUserRepository {
                                      rs.getString("password"),
                                      rs.getInt("idPerson"),
                                      rs.getString("userRegister"),
-                                     rs.getDate("timeStamp").toLocalDate(),
+                                     TimeHelper.convertToLocalDateTimeViaInstant(rs.getDate("timeStamp")),
                                      rs.getBoolean("active"),
                                      rs.getString("role")));
         } catch(EmptyResultDataAccessException ex) {
