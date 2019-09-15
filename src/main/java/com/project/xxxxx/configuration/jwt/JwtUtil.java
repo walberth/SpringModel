@@ -16,16 +16,13 @@ import org.springframework.stereotype.Component;
 
 @Component
 public class JwtUtil implements Serializable {
-    static final String CLAIM_KEY_USERNAME = "sub";
-    static final String CLAIM_KEY_CREATED = "iat";
-    private static final long serialVersionUID = -3301605591108950415L;
+    @Value("${security.jwt.token.expiration}")
+    private int expiration;
+
+    @Value("${security.jwt.token.secretKey}")
+    private String secretKey;
+
     private Clock clock = DefaultClock.INSTANCE;
-
-    @Value("${jwt.signing.key.secret}")
-    private String secret;
-
-    @Value("${jwt.token.expiration.in.seconds}")
-    private Long expiration;
 
     public String getUsernameFromToken(String token) {
         return getClaimFromToken(token, Claims::getSubject);
@@ -45,7 +42,7 @@ public class JwtUtil implements Serializable {
     }
 
     private Claims getAllClaimsFromToken(String token) {
-        return Jwts.parser().setSigningKey(secret).parseClaimsJws(token).getBody();
+        return Jwts.parser().setSigningKey(secretKey).parseClaimsJws(token).getBody();
     }
 
     private Boolean isTokenExpired(String token) {
@@ -73,7 +70,7 @@ public class JwtUtil implements Serializable {
                 .setSubject(subject)
                 .setIssuedAt(createdDate)
                 .setExpiration(expirationDate)
-                .signWith(SignatureAlgorithm.HS512, secret)
+                .signWith(SignatureAlgorithm.HS512, secretKey)
                 .compact();
     }
 
@@ -92,7 +89,7 @@ public class JwtUtil implements Serializable {
         return Jwts
                 .builder()
                 .setClaims(claims)
-                .signWith(SignatureAlgorithm.HS512, secret)
+                .signWith(SignatureAlgorithm.HS512, secretKey)
                 .compact();
     }
 

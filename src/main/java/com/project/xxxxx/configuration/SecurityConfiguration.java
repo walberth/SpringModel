@@ -27,8 +27,8 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
     @Autowired
     private JwtTokenAuthorizationOncePerRequestFilter jwtAuthenticationTokenFilter;
 
-    @Value("${jwt.get.token.uri}")
-    private String authenticationPath;
+    @Value("${security.jwt.token.uri}")
+    private String authPath;
 
     @Autowired
     public void configureGlobal(AuthenticationManagerBuilder auth) throws Exception {
@@ -60,7 +60,7 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 
     @Override
     public void configure(WebSecurity webSecurity) throws Exception {
-        webSecurity.ignoring().antMatchers(HttpMethod.POST, authenticationPath)
+        webSecurity.ignoring().antMatchers(HttpMethod.POST, authPath)
                 .antMatchers(HttpMethod.OPTIONS, "/**")
                     .and().ignoring()
                 .antMatchers(HttpMethod.GET, "/")

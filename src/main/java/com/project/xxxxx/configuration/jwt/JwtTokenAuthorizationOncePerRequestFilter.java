@@ -10,7 +10,6 @@ import com.project.xxxxx.transversal.Constant;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -29,12 +28,9 @@ public class JwtTokenAuthorizationOncePerRequestFilter extends OncePerRequestFil
     @Autowired
     private JwtUtil jwtUtil;
 
-    @Value("${jwt.http.request.header}")
-    private String tokenHeader;
-
     @Override
     protected void doFilterInternal(HttpServletRequest request, HttpServletResponse response, FilterChain chain) throws ServletException, IOException {
-        final String requestTokenHeader = request.getHeader(this.tokenHeader);
+        final String requestTokenHeader = request.getHeader(Constant.Authorization);
 
         String username = null;
         String jwtToken = null;

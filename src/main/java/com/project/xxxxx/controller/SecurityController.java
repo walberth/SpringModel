@@ -5,9 +5,9 @@ import com.project.xxxxx.model.JwtResponse;
 import com.project.xxxxx.model.Person;
 import com.project.xxxxx.model.User;
 import com.project.xxxxx.service.ISecurityService;
+import com.project.xxxxx.transversal.Constant;
 import com.project.xxxxx.transversal.Response;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.web.bind.annotation.*;
 import javax.servlet.http.HttpServletRequest;
 
@@ -20,9 +20,6 @@ public class SecurityController {
         this.securityService = securityService;
     }
 
-    @Value("${jwt.http.request.header}")
-    private String tokenHeader;
-
     @PostMapping("/authenticate")
     public Response<JwtResponse> authenticate(@RequestBody JwtRequest request) {
         return this.securityService.authenticate(request);
@@ -30,7 +27,7 @@ public class SecurityController {
 
     @GetMapping("/refresh")
     public Response<JwtResponse> refresh(HttpServletRequest request) {
-        return this.securityService.refresh(request.getHeader(tokenHeader).substring(7));
+        return this.securityService.refresh(request.getHeader(Constant.Authorization).substring(7));
     }
 
     @PostMapping("/create")
