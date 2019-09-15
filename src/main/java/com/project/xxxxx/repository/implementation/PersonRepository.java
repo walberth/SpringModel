@@ -6,7 +6,6 @@ import com.project.xxxxx.repository.mapper.PersonRowMapper;
 import com.project.xxxxx.transversal.TimeHelper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.BeanPropertyRowMapper;
-import org.springframework.jdbc.core.JdbcOperations;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Repository;
 import java.util.List;
@@ -81,7 +80,7 @@ public class PersonRepository implements IPersonRepository {
         jdbcTemplate.execute(String.format("CALL deletePerson(%s)", idPerson));
     }
 
-    public int createPerson(Person person) {
+    public Integer createPerson(Person person) {
         return jdbcTemplate.queryForObject(String.format("CALL createPerson('%s', '%s', '%s', %s, '%s', '%s', '%s', '%s', '%s', '%s')",
                     person.getFirstName(),
                     person.getFatherLastName(),

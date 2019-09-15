@@ -8,4 +8,7 @@ public class Message {
     public static final String NoSePuedeCrearSesion = "Can't be created the session";
     public static final String ErrorRefrescarToken = "Error when refresh token";
     public static final String NoSePuedeRefrescarToken = "Can't refresh token";
+    public static final String NecesitaProporcionarTokenParaEsteRecurso = "You would need to provide the Jwt Token to Access This resource";
+    public static final String NoSePudoCrearPersona = "Person can't be created";
+    public static final String NoSePudoCreUsuario = "User can't be created";
 }

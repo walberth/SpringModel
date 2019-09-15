@@ -34,7 +34,9 @@ public class SecurityController {
     }
 
     @PostMapping("/create")
-    public Response<User> create(@RequestBody Person person, @RequestParam(value="username") String username) {
-        return this.securityService.create(person, username);
+    public Response<User> create(@RequestBody Person person,
+                                 @RequestParam(value="username") String username,
+                                 @RequestParam(value="password") String password) {
+        return this.securityService.create(person, username, password);
     }
 }

@@ -13,5 +13,5 @@ public interface ISecurityService {
     void sendSimpleMessage(String to, String subject, String text);
     Response<JwtResponse> authenticate(JwtRequest request);
     Response<JwtResponse> refresh(String token);
-    Response<User> create(Person person, String username);
+    Response<User> create(Person person, String username, String password);
 }

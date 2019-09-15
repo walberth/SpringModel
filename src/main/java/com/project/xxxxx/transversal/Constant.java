@@ -3,4 +3,6 @@ package com.project.xxxxx.transversal;
 public class Constant {
     public static final String Empty = "";
     public static final String Bearer = "Bearer ";
+    public static final boolean UserDefaultActive = false;
+    public static final int UserDefaultRole = 1;
 }

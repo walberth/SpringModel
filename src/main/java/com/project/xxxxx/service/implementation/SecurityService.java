@@ -46,7 +46,6 @@ public class SecurityService implements ISecurityService {
     public void CreatePerson(Person person, Person person2) {
         Person personCreated2 = this.personRepository.createAndGetPersonCreated(person);
 
-        int personCreated1 = this.personRepository.createPerson(person2);
     }
 
     public void UpdatePerson(Person person) {
@@ -137,8 +136,32 @@ public class SecurityService implements ISecurityService {
 
     @Override
     @Transactional
-    public Response<User> create(Person person, String username) {
-        return null;
+    public Response<User> create(Person person, String username, String password) {
+        Response<User> response = new Response<>();
+
+        Integer personCreated = this.personRepository.createPerson(person);
+
+        if(personCreated == null || personCreated.equals(0)) {
+            response.setMessage(Message.NoSePudoCrearPersona);
+
+            return response;
+        }
+
+        User userCreated = this.userRepository.createUser(getUserInformation(username,
+                                                                             password,
+                                                                             personCreated,
+                                                                             person.getUserRegister()));
+
+        if(userCreated == null) {
+            response.setMessage(Message.NoSePudoCreUsuario);
+
+            return response;
+        }
+
+        response.setData(userCreated);
+        response.setIsWarning(false);
+
+        return response;
     }
 
     private Session getSessionInformation(String token, User userInformation){
@@ -159,5 +182,15 @@ public class SecurityService implements ISecurityService {
         this.sessionRepository.updateSession(this.jwtUtil.getUsernameFromToken(refreshedToken),
                                              refreshedToken,
                                              TimeHelper.convertToLocalDateTimeViaInstant(expired));
+    }
+
+    private User getUserInformation(String username, String password, int personCreated, String userRegister) {
+        User user = new User();
+        user.setUsername(username);
+        user.setPassword(password);
+        user.setIdPerson(personCreated);
+        user.setUserRegister(userRegister);
+
+        return user;
     }
 }

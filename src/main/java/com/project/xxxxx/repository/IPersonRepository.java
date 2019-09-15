@@ -10,6 +10,6 @@ public interface IPersonRepository {
     List<Person> getPersonListByRowMapperAndExtrapolation(int rowsPerPage, int pageNumber);
     void updatePerson(Person person);
     void deletePerson(int idPerson);
-    int createPerson(Person person);
+    Integer createPerson(Person person);
     Person createAndGetPersonCreated(Person person);
 }
