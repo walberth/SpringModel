@@ -10,41 +10,30 @@ import com.project.xxxxx.repository.IUserRepository;
 import com.project.xxxxx.service.ISecurityService;
 import com.project.xxxxx.transversal.Response;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.mail.SimpleMailMessage;
 import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.security.authentication.AuthenticationManager;
-import org.springframework.security.authentication.BadCredentialsException;
-import org.springframework.security.authentication.DisabledException;
-import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.userdetails.UserDetails;
-import org.springframework.security.core.userdetails.UserDetailsService;
-import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import java.util.Objects;
-
 @Service("SecurityService")
-public class SecurityService implements ISecurityService, UserDetailsService {
+public class SecurityService implements ISecurityService {
     private IPersonRepository personRepository;
     private IUserRepository userRepository;
     private JavaMailSender emailSender;
     private AuthenticationManager authenticationManager;
     private JwtUtil jwtUtil;
-    //private UserDetailsService userDetailsService;
 
     @Autowired
     public SecurityService(IPersonRepository personRepository,
                            AuthenticationManager authenticationManager,
                            JavaMailSender emailSender,
-                          // @Qualifier("SecurityService") UserDetailsService userDetailsService,
                            JwtUtil jwtUtil,
                            IUserRepository userRepository){
         this.personRepository = personRepository;
         this.emailSender = emailSender;
         this.userRepository = userRepository;
-        //his.userDetailsService = userDetailsService;
         this.jwtUtil = jwtUtil;
         this.authenticationManager = authenticationManager;
     }
@@ -63,17 +52,6 @@ public class SecurityService implements ISecurityService, UserDetailsService {
         String methodName = System.getProperty("methodName");
     }
 
-    @Override
-    public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
-        User userInformation = this.userRepository.getUserInformation("wgutierrez", "$2a$10$3zHzb.Npv1hfZbLEU5qsdOju/tk2je6W6PnNnY.c1ujWPcZh4PL6e");
-
-        if (userInformation == null) {
-            throw new UsernameNotFoundException(String.format("USER_NOT_FOUND '%s'.", username));
-        }
-
-        return userInformation;
-    }
-
     public void sendSimpleMessage(String to, String subject, String text) {
         SimpleMailMessage message = new SimpleMailMessage();
         message.setTo(to);
@@ -82,40 +60,19 @@ public class SecurityService implements ISecurityService, UserDetailsService {
         this.emailSender.send(message);
     }
 
-    public Response<JwtResponse> createAuthenticationToken(JwtRequest request) {
+    public Response<JwtResponse> authenticate(JwtRequest request) {
         Response<JwtResponse> response = new Response<>();
 
-        Response<UserDetails> authenticated = authenticate(request.getUsername(), request.getPassword());
-
-        if(authenticated.isIsWarning()) {
-            response.setMessage(authenticated.getMessage());
-
-            return response;
-        }
-
-        //final UserDetails userDetails = userDetailsService.loadUserByUsername(request.getUsername());
-
-        final String token = jwtUtil.generateToken(authenticated.getData());
-
-        response.setData(new JwtResponse(token));
-        response.setIsWarning(false);
-
-        return response;
-    }
-
-    private Response<UserDetails> authenticate(String username, String password) {
-        Response<UserDetails> response = new Response<>();
-
-        if(username.equals("") || password.equals("")) {
+        if(request.getUsername().equals("") || request.getPassword().equals("")) {
             response.setMessage("Must be indicate user and password");
 
             return response;
         }
 
-        User userInformation = this.userRepository.getUserInformation(username, password);
+        User userInformation = this.userRepository.getUserInformation(request.getUsername(), request.getPassword());
 
         if(userInformation == null) {
-            response.setMessage("Invalid Credentials");
+            response.setMessage("User Not Found");
 
             return response;
         }
@@ -126,7 +83,33 @@ public class SecurityService implements ISecurityService, UserDetailsService {
             return response;
         }
 
-        response.setData(userInformation);
+        final String token = jwtUtil.generateToken(userInformation);
+
+        response.setData(new JwtResponse(token));
+        response.setIsWarning(false);
+
+        return response;
+    }
+
+    public Response<JwtResponse> refresh(String token) {
+        Response<JwtResponse> response = new Response<>();
+        String refreshedToken = "";
+
+        if (this.jwtUtil.canTokenBeRefreshed(token)) {
+            refreshedToken = this.jwtUtil.refreshToken(token);
+
+            if(refreshedToken.equals("")) {
+                response.setMessage("Error when refresh token");
+
+                return response;
+            }
+        } else {
+            response.setMessage("Can't refresh token");
+
+            return response;
+        }
+
+        response.setData(new JwtResponse(refreshedToken));
         response.setIsWarning(false);
 
         return response;

@@ -10,5 +10,6 @@ public interface ISecurityService {
     void UpdatePerson(Person person);
     void DeletePerson();
     void sendSimpleMessage(String to, String subject, String text);
-    Response<JwtResponse> createAuthenticationToken(JwtRequest request);
+    Response<JwtResponse> authenticate(JwtRequest request);
+    Response<JwtResponse> refresh(String token);
 }

@@ -27,27 +27,10 @@ public class User implements UserDetails {
     private boolean Active;
     private String Authority;
 
-    /*public User(int Id,
-                int idPerson,
-                Date timeStamp,
-                String username,
-                String password,
-                String role,
-                boolean active,
-                String userRegister) {
-        this.Id = Id;
+    public User(String username, String role) {
         this.Username = username;
-        this.Password = password;
-        this.IdPerson = idPerson;
-        this.Active = active;
-        this.UserRegister = userRegister;
-        this.TimeStamp = timeStamp.toLocalDate();
-
-        List<SimpleGrantedAuthority> authorities = new ArrayList<SimpleGrantedAuthority>();
-        authorities.add(new SimpleGrantedAuthority(role));
-
-        this.authorities = authorities;
-    }*/
+        this.Authority = role;
+    }
 
     @Override
     public String toString() {

@@ -34,4 +34,16 @@ public class UserRepository implements IUserRepository {
             return null;
         }
     }
+
+    public User getUser(String username) {
+        try {
+            return jdbcTemplate.queryForObject(String.format("CALL getUser('%s')",
+                    username),
+                    (rs, rowNum) ->
+                            new User(rs.getString("username"),
+                                    rs.getString("role")));
+        } catch(EmptyResultDataAccessException ex) {
+            return null;
+        }
+    }
 }

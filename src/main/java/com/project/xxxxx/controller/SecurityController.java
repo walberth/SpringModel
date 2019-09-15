@@ -7,6 +7,7 @@ import com.project.xxxxx.transversal.Response;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.web.bind.annotation.*;
+import javax.servlet.http.HttpServletRequest;
 
 @RestController
 public class SecurityController {
@@ -21,12 +22,17 @@ public class SecurityController {
     private String tokenHeader;
 
     @PostMapping("/authenticate")
-    public Response<JwtResponse> createAuthenticationToken(@RequestBody JwtRequest request) {
-        return this.securityService.createAuthenticationToken(request);
+    public Response<JwtResponse> authenticate(@RequestBody JwtRequest request) {
+        return this.securityService.authenticate(request);
+    }
+
+    @GetMapping("/refresh")
+    public Response<JwtResponse> refresh(HttpServletRequest request) {
+        return this.securityService.refresh(request.getHeader(tokenHeader).substring(7));
     }
 
     @GetMapping("/getTest")
-    public String GetPersonList() {
+    public String getTest() {
         return "Hola Mundo";
     }
 }
