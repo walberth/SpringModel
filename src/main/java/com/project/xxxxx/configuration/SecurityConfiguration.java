@@ -60,7 +60,15 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 
     @Override
     public void configure(WebSecurity webSecurity) throws Exception {
-        webSecurity.ignoring().antMatchers(HttpMethod.POST, authPath)
+        webSecurity
+                .ignoring().antMatchers(HttpMethod.POST, authPath)
+                    .and().ignoring().antMatchers("/v2/api-docs",
+                "/configuration/ui",
+                "/swagger-resources/**",
+                "/configuration/security",
+                "/swagger-ui.html",
+                "/webjars/**")
+
                 .antMatchers(HttpMethod.OPTIONS, "/**")
                     .and().ignoring()
                 .antMatchers(HttpMethod.GET, "/")
