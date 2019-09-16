@@ -252,6 +252,60 @@ DROP PROCEDURE IF EXISTS deleteSession $$
 CREATE PROCEDURE deleteSession(IN username VARCHAR(50))
 BEGIN
 	DELETE FROM xxxxx.session
-	WHERE user_id = (SELECT id FROM xxxxx.user WHERE username = username);
+	WHERE user_id = (SELECT
+	                    id
+	                 FROM xxxxx.user
+	                 WHERE username = username
+		                AND active = true);
+END $$
+DELIMITER ;
+
+/****** Object: Procedure createUser  ******/
+DELIMITER $$
+DROP PROCEDURE IF EXISTS createUser $$
+CREATE PROCEDURE createUser(IN username VARCHAR(50),
+						    IN password TEXT,
+						    IN idPerson INT,
+						    IN idRole INT,
+						    IN active TINYINT(4),
+						    IN userRegister VARCHAR(20))
+BEGIN
+	INSERT INTO xxxxx.user (username,
+							password,
+                            person_id,
+                            role_id,
+                            active,
+                            user_register)
+    VALUES(username,
+           password,
+           idPerson,
+           idRole,
+           active,
+           userRegister);
+
+	SELECT
+		A.id 'id',
+		A.person_id 'idPerson',
+		A.time_stamp 'timeStamp',
+		A.username 'username',
+		A.password 'password',
+		B.name 'role',
+        A.active,
+        A.user_register 'userRegister'
+	FROM xxxxx.user A
+		INNER JOIN xxxxx.role B ON A.role_id = B.id
+	WHERE A.id = LAST_INSERT_ID();
+END $$
+DELIMITER ;
+
+/****** Object: Procedure validateUserExists  ******/
+DELIMITER $$
+DROP PROCEDURE IF EXISTS validateUserExists $$
+CREATE PROCEDURE validateUserExists(IN username VARCHAR(50))
+BEGIN
+	SELECT IF(COUNT(0) > 0, 1, 0)
+	FROM xxxxx.user
+	WHERE username = username
+		AND active = true;
 END $$
 DELIMITER ;

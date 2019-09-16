@@ -11,4 +11,5 @@ public class Message {
     public static final String NecesitaProporcionarTokenParaEsteRecurso = "You would need to provide the Jwt Token to Access This resource";
     public static final String NoSePudoCrearPersona = "Person can't be created";
     public static final String NoSePudoCreUsuario = "User can't be created";
+    public static final String UsuarioYaExisteSistema = "Username already exists in the datbase";
 }

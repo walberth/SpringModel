@@ -130,8 +130,13 @@ public class SecurityService implements ISecurityService {
     public Response<User> create(Person person, String username, String password) {
         Response<User> response = new Response<>();
 
-        // TODO: VALIDAR SI HAY USUARIOS CON EL MISMO NOMBRE
+        Integer validateUserExists = this.userRepository.validateUserExists(username);
 
+        if(validateUserExists > 0) {
+            response.setMessage(Message.UsuarioYaExisteSistema);
+
+            return response;
+        }
 
         Integer personCreated = this.personRepository.createPerson(person);
 

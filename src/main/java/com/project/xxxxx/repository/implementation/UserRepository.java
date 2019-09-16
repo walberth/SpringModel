@@ -72,4 +72,9 @@ public class UserRepository implements IUserRepository {
             return null;
         }
     }
+
+    @Override
+    public Integer validateUserExists(String username) {
+        return jdbcTemplate.queryForObject(String.format("CALL validateUserExists('%s')",username), Integer.class);
+    }
 }
