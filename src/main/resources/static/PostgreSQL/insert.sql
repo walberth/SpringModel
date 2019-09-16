@@ -1,5 +1,5 @@
 /****** Object:  Insert person ******/
-INSERT INTO xxxxx.person (first_name,
+insert into xxxxx.person (first_name,
                           father_name,
                           mother_name,
                           sex,
@@ -9,7 +9,7 @@ INSERT INTO xxxxx.person (first_name,
                           mobile,
                           telephone,
                           user_register)
-VALUES ('Gualberto',
+values ('Gualberto',
 		'Gutierrez',
 		'Leon',
         true,
@@ -19,6 +19,7 @@ VALUES ('Gualberto',
 		'995236526',
 		'4256329',
 		'wgutierrez');
+
 
 /****** Object:  Insert role ******/
 INSERT INTO xxxxx.role (name)
@@ -40,8 +41,8 @@ INSERT INTO xxxxx.user (username,
                         active,
                         user_register)
 VALUES ('wgutierrez',
-        'omarjc',
+        '$2a$10$3zHzb.Npv1hfZbLEU5qsdOju/tk2je6W6PnNnY.c1ujWPcZh4PL6e',
         1,
         1,
-        1,
+        true,
         'wgutierrez');
