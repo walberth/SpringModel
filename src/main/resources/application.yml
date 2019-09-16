@@ -9,14 +9,15 @@ spring:
     driver-class-name: com.mysql.cj.jdbc.Driver
   mail:
     default-encoding: UTF-8
-    host: smpt.gmail.com
+    host: smtp.gmail.com
     username: w.felipe.gutierrez@gmail.com
-    password: Lost2011.
+    password: atfekmzekliyupob
     port: 587
     properties.mail.smtp:
-      auth: true
+      #auth: true
       starttls.enable: true
-      ssl.trust: smtp.gmail.com
+      connection.timeout: 5000
+      #ssl.trust: smtp.gmail.com
 
 server:
   port: 8865

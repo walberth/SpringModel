@@ -45,7 +45,6 @@ public class SecurityService implements ISecurityService {
     @Transactional
     public void CreatePerson(Person person, Person person2) {
         Person personCreated2 = this.personRepository.createAndGetPersonCreated(person);
-
     }
 
     public void UpdatePerson(Person person) {
@@ -55,11 +54,13 @@ public class SecurityService implements ISecurityService {
         String methodName = System.getProperty("methodName");
     }
 
+    @Override
     public void sendSimpleMessage(String to, String subject, String text) {
         SimpleMailMessage message = new SimpleMailMessage();
         message.setTo(to);
         message.setSubject(subject);
         message.setText(text);
+
         this.emailSender.send(message);
     }
 

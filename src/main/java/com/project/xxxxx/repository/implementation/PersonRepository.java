@@ -32,7 +32,7 @@ public class PersonRepository implements IPersonRepository {
                            rs.getString("telephone"),
                            rs.getString("mobile"),
                            rs.getString("userRegister"),
-                           TimeHelper.convertToLocalDateTimeViaInstant(rs.getDate("timeStamp"))));
+                           TimeHelper.convertToLocalDateTimeViaInstant(rs.getTimestamp("timeStamp"))));
     }
 
     public List<Person> getPersonList(int rowsPerPage, int pageNumber) {
@@ -48,7 +48,7 @@ public class PersonRepository implements IPersonRepository {
                         rs.getString("telephone"),
                         rs.getString("mobile"),
                         rs.getString("userRegister"),
-                        TimeHelper.convertToLocalDateTimeViaInstant(rs.getDate("timeStamp"))));
+                        TimeHelper.convertToLocalDateTimeViaInstant(rs.getTimestamp("timeStamp"))));
     }
 
     public List<Person> getPersonListByRowMapper(int rowsPerPage, int pageNumber) {

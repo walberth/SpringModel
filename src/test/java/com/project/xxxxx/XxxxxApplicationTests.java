@@ -8,7 +8,6 @@ import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
-
 import java.sql.Date;
 import java.util.List;
 
@@ -116,5 +115,12 @@ public class XxxxxApplicationTests {
                         null));
 
         this.securityService.DeletePerson();
+    }
+
+    @Test
+    public void EmailTest() {
+        this.securityService.sendSimpleMessage("w.felipe.gutierrez@gmail.com",
+                "TEST EMAIL",
+                "Texto de prueba de envio de correos");
     }
 }

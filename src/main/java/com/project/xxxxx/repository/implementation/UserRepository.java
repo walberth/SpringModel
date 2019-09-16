@@ -29,7 +29,7 @@ public class UserRepository implements IUserRepository {
                                      rs.getString("password"),
                                      rs.getInt("idPerson"),
                                      rs.getString("userRegister"),
-                                     TimeHelper.convertToLocalDateTimeViaInstant(rs.getDate("timeStamp")),
+                                     TimeHelper.convertToLocalDateTimeViaInstant(rs.getTimestamp("timeStamp")),
                                      rs.getBoolean("active"),
                                      rs.getString("role")));
         } catch(EmptyResultDataAccessException ex) {
@@ -65,7 +65,7 @@ public class UserRepository implements IUserRepository {
                                      rs.getString("password"),
                                      rs.getInt("idPerson"),
                                      rs.getString("userRegister"),
-                                     TimeHelper.convertToLocalDateTimeViaInstant(rs.getDate("timeStamp")),
+                                     TimeHelper.convertToLocalDateTimeViaInstant(rs.getTimestamp("timeStamp")),
                                      rs.getBoolean("active"),
                                      rs.getString("role")));
         } catch(EmptyResultDataAccessException ex) {
