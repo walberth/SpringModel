@@ -116,11 +116,4 @@ public class XxxxxApplicationTests {
 
         this.securityService.DeletePerson();
     }
-
-    @Test
-    public void EmailTest() {
-        this.securityService.sendSimpleMessage("w.felipe.gutierrez@gmail.com",
-                "TEST EMAIL",
-                "Texto de prueba de envio de correos");
-    }
 }

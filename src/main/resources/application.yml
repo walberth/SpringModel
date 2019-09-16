@@ -14,10 +14,8 @@ spring:
     password: atfekmzekliyupob
     port: 587
     properties.mail.smtp:
-      #auth: true
       starttls.enable: true
       connection.timeout: 5000
-      #ssl.trust: smtp.gmail.com
 
 server:
   port: 8865

@@ -55,16 +55,6 @@ public class SecurityService implements ISecurityService {
     }
 
     @Override
-    public void sendSimpleMessage(String to, String subject, String text) {
-        SimpleMailMessage message = new SimpleMailMessage();
-        message.setTo(to);
-        message.setSubject(subject);
-        message.setText(text);
-
-        this.emailSender.send(message);
-    }
-
-    @Override
     @Transactional
     public Response<JwtResponse> authenticate(JwtRequest request) {
         Response<JwtResponse> response = new Response<>();
@@ -140,6 +130,9 @@ public class SecurityService implements ISecurityService {
     public Response<User> create(Person person, String username, String password) {
         Response<User> response = new Response<>();
 
+        // TODO: VALIDAR SI HAY USUARIOS CON EL MISMO NOMBRE
+
+
         Integer personCreated = this.personRepository.createPerson(person);
 
         if(personCreated == null || personCreated.equals(0)) {
@@ -158,6 +151,12 @@ public class SecurityService implements ISecurityService {
 
             return response;
         }
+
+        this.sendEmail(Constant.DefaultEmail,
+                       "User Created",
+                       String.format("%s: %s",
+                            person.getFirstName(),
+                            userCreated.getUsername()));
 
         response.setData(userCreated);
         response.setIsWarning(false);
@@ -193,5 +192,14 @@ public class SecurityService implements ISecurityService {
         user.setUserRegister(userRegister);
 
         return user;
+    }
+
+    private void sendEmail(String to, String subject, String text) {
+        SimpleMailMessage message = new SimpleMailMessage();
+        message.setTo(to);
+        message.setSubject(subject);
+        message.setText(text);
+
+        this.emailSender.send(message);
     }
 }
