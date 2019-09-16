@@ -45,7 +45,7 @@ public class SecurityService implements ISecurityService {
 
     @Transactional
     public void CreatePerson(Person person, Person person2) {
-        Person personCreated2 = this.personRepository.createAndGetPersonCreated(person);
+        Person personCreated = this.personRepository.createAndGetPersonCreated(person);
     }
 
     public void UpdatePerson(Person person) {
