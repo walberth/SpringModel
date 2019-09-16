@@ -14,6 +14,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.mail.SimpleMailMessage;
 import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.security.authentication.AuthenticationManager;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import java.util.Date;
@@ -147,7 +148,7 @@ public class SecurityService implements ISecurityService {
         }
 
         User userCreated = this.userRepository.createUser(getUserInformation(username,
-                                                                             password,
+                                                                             this.encondePassword(password),
                                                                              personCreated,
                                                                              person.getUserRegister()));
 
@@ -206,5 +207,9 @@ public class SecurityService implements ISecurityService {
         message.setText(text);
 
         this.emailSender.send(message);
+    }
+
+    private String encondePassword(String password) {
+        return new BCryptPasswordEncoder().encode(password);
     }
 }
