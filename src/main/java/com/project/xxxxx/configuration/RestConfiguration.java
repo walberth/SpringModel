@@ -13,7 +13,7 @@ import springfox.documentation.service.*;
 import springfox.documentation.spi.DocumentationType;
 import springfox.documentation.spring.web.plugins.Docket;
 import springfox.documentation.swagger2.annotations.EnableSwagger2;
-import java.util.Arrays;
+import java.util.Collections;
 
 @Aspect
 @EnableSwagger2
@@ -40,17 +40,17 @@ public class RestConfiguration  implements WebMvcConfigurer {
                 .paths(PathSelectors.any())
                 .build()
                 .apiInfo(getApiInfo())
-                .securitySchemes(Arrays.asList(apiKey()));
+                .securitySchemes(Collections.singletonList(apiKey()));
     }
 
     private ApiKey apiKey() {
-        return new ApiKey("Authorization", "authkey", "header");
+        return new ApiKey("Authorization", "APIKey", "header");
     }
 
     private ApiInfo getApiInfo() {
         return new ApiInfoBuilder().title("Spring Boot REST API")
                 .description("Management REST API")
-                .contact(new Contact("Walberth Gutierrez", "www.url.com", "w.felipe.gutierrez@gmail.com"))
+                .contact(new Contact("Walberth Gutierrez", "codingwithnotrycatch.com", "w.felipe.gutierrez@gmail.com"))
                 .license("Apache 2.0")
                 .licenseUrl("http://www.apache.org/licenses/LICENSE-2.0.html")
                 .version("1.0.0")

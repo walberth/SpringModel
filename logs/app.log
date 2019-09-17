@@ -565,3 +565,263 @@
  CallSite: ${sys:callSite} | Action: ${sys:action} | MethodName: ${sys:methodName} 
  
 
+2019-09-16 21:21:58,801 WARN c.p.x.c.j.JwtTokenAuthorizationOncePerRequestFilter [${sys:idRequest}] | Message: JWT_TOKEN_DOES_NOT_START_WITH_BEARER_STRING | Payload: ${sys:payload} 
+ CallSite: ${sys:callSite} | Action: ${sys:action} | MethodName: ${sys:methodName} 
+ 
+
+2019-09-16 21:21:59,198 WARN c.p.x.c.j.JwtTokenAuthorizationOncePerRequestFilter [${sys:idRequest}] | Message: JWT_TOKEN_DOES_NOT_START_WITH_BEARER_STRING | Payload: ${sys:payload} 
+ CallSite: /swagger-ui.html | Action: swagger-ui.html | MethodName: ${sys:methodName} 
+ 
+
+2019-09-16 21:21:59,198 WARN c.p.x.c.j.JwtTokenAuthorizationOncePerRequestFilter [${sys:idRequest}] | Message: JWT_TOKEN_DOES_NOT_START_WITH_BEARER_STRING | Payload: ${sys:payload} 
+ CallSite: /swagger-ui.html | Action: swagger-ui.html | MethodName: ${sys:methodName} 
+ 
+
+2019-09-16 21:21:59,204 WARN c.p.x.c.j.JwtTokenAuthorizationOncePerRequestFilter [${sys:idRequest}] | Message: JWT_TOKEN_DOES_NOT_START_WITH_BEARER_STRING | Payload: ${sys:payload} 
+ CallSite: /swagger-ui.html | Action: swagger-ui.html | MethodName: ${sys:methodName} 
+ 
+
+2019-09-16 21:21:59,204 WARN c.p.x.c.j.JwtTokenAuthorizationOncePerRequestFilter [${sys:idRequest}] | Message: JWT_TOKEN_DOES_NOT_START_WITH_BEARER_STRING | Payload: ${sys:payload} 
+ CallSite: /swagger-ui.html | Action: swagger-ui.html | MethodName: ${sys:methodName} 
+ 
+
+2019-09-16 21:21:59,206 WARN c.p.x.c.j.JwtTokenAuthorizationOncePerRequestFilter [${sys:idRequest}] | Message: JWT_TOKEN_DOES_NOT_START_WITH_BEARER_STRING | Payload: ${sys:payload} 
+ CallSite: /swagger-ui.html | Action: swagger-ui.html | MethodName: ${sys:methodName} 
+ 
+
+2019-09-16 21:21:59,587 WARN c.p.x.c.j.JwtTokenAuthorizationOncePerRequestFilter [${sys:idRequest}] | Message: JWT_TOKEN_DOES_NOT_START_WITH_BEARER_STRING | Payload: v=2.8.0-SNAPSHOT 
+ CallSite: /webjars/springfox-swagger-ui/springfox.css | Action: springfox.css | MethodName: ${sys:methodName} 
+ 
+
+2019-09-16 21:21:59,589 WARN c.p.x.c.j.JwtTokenAuthorizationOncePerRequestFilter [${sys:idRequest}] | Message: JWT_TOKEN_DOES_NOT_START_WITH_BEARER_STRING | Payload: v=2.8.0-SNAPSHOT 
+ CallSite: /webjars/springfox-swagger-ui/springfox.css | Action: springfox.css | MethodName: ${sys:methodName} 
+ 
+
+2019-09-16 21:21:59,647 WARN c.p.x.c.j.JwtTokenAuthorizationOncePerRequestFilter [${sys:idRequest}] | Message: JWT_TOKEN_DOES_NOT_START_WITH_BEARER_STRING | Payload: v=2.8.0-SNAPSHOT 
+ CallSite: /webjars/springfox-swagger-ui/favicon-32x32.png | Action: favicon-32x32.png | MethodName: ${sys:methodName} 
+ 
+
+2019-09-16 21:21:59,664 WARN c.p.x.c.j.JwtTokenAuthorizationOncePerRequestFilter [${sys:idRequest}] | Message: JWT_TOKEN_DOES_NOT_START_WITH_BEARER_STRING | Payload: v=2.8.0-SNAPSHOT 
+ CallSite: /swagger-resources/configuration/security | Action: security | MethodName: ${sys:methodName} 
+ 
+
+2019-09-16 21:21:59,714 WARN c.p.x.c.j.JwtTokenAuthorizationOncePerRequestFilter [${sys:idRequest}] | Message: JWT_TOKEN_DOES_NOT_START_WITH_BEARER_STRING | Payload: v=2.8.0-SNAPSHOT 
+ CallSite: /swagger-resources | Action: swagger-resources | MethodName: ${sys:methodName} 
+ 
+
+2019-09-16 21:21:59,714 WARN c.p.x.c.j.JwtTokenAuthorizationOncePerRequestFilter [${sys:idRequest}] | Message: JWT_TOKEN_DOES_NOT_START_WITH_BEARER_STRING | Payload: v=2.8.0-SNAPSHOT 
+ CallSite: /swagger-resources | Action: swagger-resources | MethodName: ${sys:methodName} 
+ 
+
+2019-09-16 21:21:59,714 WARN c.p.x.c.j.JwtTokenAuthorizationOncePerRequestFilter [${sys:idRequest}] | Message: JWT_TOKEN_DOES_NOT_START_WITH_BEARER_STRING | Payload: v=2.8.0-SNAPSHOT 
+ CallSite: /swagger-resources | Action: swagger-resources | MethodName: ${sys:methodName} 
+ 
+
+2019-09-16 21:22:06,730 WARN c.p.x.c.j.JwtTokenAuthorizationOncePerRequestFilter [${sys:idRequest}] | Message: JWT_TOKEN_DOES_NOT_START_WITH_BEARER_STRING | Payload: v=2.8.0-SNAPSHOT 
+ CallSite: /webjars/springfox-swagger-ui/fonts/open-sans-v15-latin-regular.woff2 | Action: open-sans-v15-latin-regular.woff2 | MethodName: ${sys:methodName} 
+ 
+
+2019-09-16 21:22:06,754 WARN c.p.x.c.j.JwtTokenAuthorizationOncePerRequestFilter [${sys:idRequest}] | Message: JWT_TOKEN_DOES_NOT_START_WITH_BEARER_STRING | Payload: v=2.8.0-SNAPSHOT 
+ CallSite: /swagger-ui.html | Action: swagger-ui.html | MethodName: ${sys:methodName} 
+ 
+
+2019-09-16 21:22:06,754 WARN c.p.x.c.j.JwtTokenAuthorizationOncePerRequestFilter [${sys:idRequest}] | Message: JWT_TOKEN_DOES_NOT_START_WITH_BEARER_STRING | Payload: v=2.8.0-SNAPSHOT 
+ CallSite: /swagger-ui.html | Action: swagger-ui.html | MethodName: ${sys:methodName} 
+ 
+
+2019-09-16 21:22:06,756 WARN c.p.x.c.j.JwtTokenAuthorizationOncePerRequestFilter [${sys:idRequest}] | Message: JWT_TOKEN_DOES_NOT_START_WITH_BEARER_STRING | Payload: v=2.8.0-SNAPSHOT 
+ CallSite: /swagger-ui.html | Action: swagger-ui.html | MethodName: ${sys:methodName} 
+ 
+
+2019-09-16 21:22:06,758 WARN c.p.x.c.j.JwtTokenAuthorizationOncePerRequestFilter [${sys:idRequest}] | Message: JWT_TOKEN_DOES_NOT_START_WITH_BEARER_STRING | Payload: v=2.8.0-SNAPSHOT 
+ CallSite: /swagger-ui.html | Action: swagger-ui.html | MethodName: ${sys:methodName} 
+ 
+
+2019-09-16 21:22:06,761 WARN c.p.x.c.j.JwtTokenAuthorizationOncePerRequestFilter [${sys:idRequest}] | Message: JWT_TOKEN_DOES_NOT_START_WITH_BEARER_STRING | Payload: v=2.8.0-SNAPSHOT 
+ CallSite: /swagger-ui.html | Action: swagger-ui.html | MethodName: ${sys:methodName} 
+ 
+
+2019-09-16 21:22:06,929 WARN c.p.x.c.j.JwtTokenAuthorizationOncePerRequestFilter [${sys:idRequest}] | Message: JWT_TOKEN_DOES_NOT_START_WITH_BEARER_STRING | Payload: v=2.8.0-SNAPSHOT 
+ CallSite: /webjars/springfox-swagger-ui/springfox.css | Action: springfox.css | MethodName: ${sys:methodName} 
+ 
+
+2019-09-16 21:22:06,961 WARN c.p.x.c.j.JwtTokenAuthorizationOncePerRequestFilter [${sys:idRequest}] | Message: JWT_TOKEN_DOES_NOT_START_WITH_BEARER_STRING | Payload: v=2.8.0-SNAPSHOT 
+ CallSite: /swagger-resources/configuration/ui | Action: ui | MethodName: ${sys:methodName} 
+ 
+
+2019-09-16 21:22:06,979 WARN c.p.x.c.j.JwtTokenAuthorizationOncePerRequestFilter [${sys:idRequest}] | Message: JWT_TOKEN_DOES_NOT_START_WITH_BEARER_STRING | Payload: v=2.8.0-SNAPSHOT 
+ CallSite: /swagger-resources/configuration/security | Action: security | MethodName: ${sys:methodName} 
+ 
+
+2019-09-16 21:22:07,009 WARN c.p.x.c.j.JwtTokenAuthorizationOncePerRequestFilter [${sys:idRequest}] | Message: JWT_TOKEN_DOES_NOT_START_WITH_BEARER_STRING | Payload: v=2.8.0-SNAPSHOT 
+ CallSite: /swagger-resources | Action: swagger-resources | MethodName: ${sys:methodName} 
+ 
+
+2019-09-16 21:22:07,009 WARN c.p.x.c.j.JwtTokenAuthorizationOncePerRequestFilter [${sys:idRequest}] | Message: JWT_TOKEN_DOES_NOT_START_WITH_BEARER_STRING | Payload: v=2.8.0-SNAPSHOT 
+ CallSite: /swagger-resources | Action: swagger-resources | MethodName: ${sys:methodName} 
+ 
+
+2019-09-16 21:22:07,010 WARN c.p.x.c.j.JwtTokenAuthorizationOncePerRequestFilter [${sys:idRequest}] | Message: JWT_TOKEN_DOES_NOT_START_WITH_BEARER_STRING | Payload: v=2.8.0-SNAPSHOT 
+ CallSite: /swagger-resources | Action: swagger-resources | MethodName: ${sys:methodName} 
+ 
+
+2019-09-16 21:22:26,470 WARN c.p.x.c.j.JwtTokenAuthorizationOncePerRequestFilter [${sys:idRequest}] | Message: JWT_TOKEN_DOES_NOT_START_WITH_BEARER_STRING | Payload: ${sys:payload} 
+ CallSite: ${sys:callSite} | Action: ${sys:action} | MethodName: ${sys:methodName} 
+ 
+
+2019-09-16 21:22:26,830 WARN c.p.x.c.j.JwtTokenAuthorizationOncePerRequestFilter [${sys:idRequest}] | Message: JWT_TOKEN_DOES_NOT_START_WITH_BEARER_STRING | Payload: ${sys:payload} 
+ CallSite: /swagger-ui.html | Action: swagger-ui.html | MethodName: ${sys:methodName} 
+ 
+
+2019-09-16 21:22:26,830 WARN c.p.x.c.j.JwtTokenAuthorizationOncePerRequestFilter [${sys:idRequest}] | Message: JWT_TOKEN_DOES_NOT_START_WITH_BEARER_STRING | Payload: ${sys:payload} 
+ CallSite: /swagger-ui.html | Action: swagger-ui.html | MethodName: ${sys:methodName} 
+ 
+
+2019-09-16 21:22:26,833 WARN c.p.x.c.j.JwtTokenAuthorizationOncePerRequestFilter [${sys:idRequest}] | Message: JWT_TOKEN_DOES_NOT_START_WITH_BEARER_STRING | Payload: ${sys:payload} 
+ CallSite: /swagger-ui.html | Action: swagger-ui.html | MethodName: ${sys:methodName} 
+ 
+
+2019-09-16 21:22:26,836 WARN c.p.x.c.j.JwtTokenAuthorizationOncePerRequestFilter [${sys:idRequest}] | Message: JWT_TOKEN_DOES_NOT_START_WITH_BEARER_STRING | Payload: ${sys:payload} 
+ CallSite: /swagger-ui.html | Action: swagger-ui.html | MethodName: ${sys:methodName} 
+ 
+
+2019-09-16 21:22:26,837 WARN c.p.x.c.j.JwtTokenAuthorizationOncePerRequestFilter [${sys:idRequest}] | Message: JWT_TOKEN_DOES_NOT_START_WITH_BEARER_STRING | Payload: ${sys:payload} 
+ CallSite: /swagger-ui.html | Action: swagger-ui.html | MethodName: ${sys:methodName} 
+ 
+
+2019-09-16 21:22:27,228 WARN c.p.x.c.j.JwtTokenAuthorizationOncePerRequestFilter [${sys:idRequest}] | Message: JWT_TOKEN_DOES_NOT_START_WITH_BEARER_STRING | Payload: v=2.8.0-SNAPSHOT 
+ CallSite: /webjars/springfox-swagger-ui/springfox.css | Action: springfox.css | MethodName: ${sys:methodName} 
+ 
+
+2019-09-16 21:22:27,228 WARN c.p.x.c.j.JwtTokenAuthorizationOncePerRequestFilter [${sys:idRequest}] | Message: JWT_TOKEN_DOES_NOT_START_WITH_BEARER_STRING | Payload: v=2.8.0-SNAPSHOT 
+ CallSite: /webjars/springfox-swagger-ui/springfox.css | Action: springfox.css | MethodName: ${sys:methodName} 
+ 
+
+2019-09-16 21:22:27,288 WARN c.p.x.c.j.JwtTokenAuthorizationOncePerRequestFilter [${sys:idRequest}] | Message: JWT_TOKEN_DOES_NOT_START_WITH_BEARER_STRING | Payload: v=2.8.0-SNAPSHOT 
+ CallSite: /webjars/springfox-swagger-ui/favicon-32x32.png | Action: favicon-32x32.png | MethodName: ${sys:methodName} 
+ 
+
+2019-09-16 21:22:27,303 WARN c.p.x.c.j.JwtTokenAuthorizationOncePerRequestFilter [${sys:idRequest}] | Message: JWT_TOKEN_DOES_NOT_START_WITH_BEARER_STRING | Payload: v=2.8.0-SNAPSHOT 
+ CallSite: /swagger-resources/configuration/security | Action: security | MethodName: ${sys:methodName} 
+ 
+
+2019-09-16 21:22:27,336 WARN c.p.x.c.j.JwtTokenAuthorizationOncePerRequestFilter [${sys:idRequest}] | Message: JWT_TOKEN_DOES_NOT_START_WITH_BEARER_STRING | Payload: v=2.8.0-SNAPSHOT 
+ CallSite: /swagger-resources | Action: swagger-resources | MethodName: ${sys:methodName} 
+ 
+
+2019-09-16 21:22:27,349 WARN c.p.x.c.j.JwtTokenAuthorizationOncePerRequestFilter [${sys:idRequest}] | Message: JWT_TOKEN_DOES_NOT_START_WITH_BEARER_STRING | Payload: v=2.8.0-SNAPSHOT 
+ CallSite: /swagger-resources | Action: swagger-resources | MethodName: ${sys:methodName} 
+ 
+
+2019-09-16 21:22:27,348 WARN c.p.x.c.j.JwtTokenAuthorizationOncePerRequestFilter [${sys:idRequest}] | Message: JWT_TOKEN_DOES_NOT_START_WITH_BEARER_STRING | Payload: v=2.8.0-SNAPSHOT 
+ CallSite: /swagger-resources | Action: swagger-resources | MethodName: ${sys:methodName} 
+ 
+
+2019-09-16 21:22:27,519 WARN c.p.x.c.j.JwtTokenAuthorizationOncePerRequestFilter [${sys:idRequest}] | Message: JWT_TOKEN_DOES_NOT_START_WITH_BEARER_STRING | Payload: v=2.8.0-SNAPSHOT 
+ CallSite: /webjars/springfox-swagger-ui/fonts/titillium-web-v6-latin-700.woff2 | Action: titillium-web-v6-latin-700.woff2 | MethodName: ${sys:methodName} 
+ 
+
+2019-09-16 21:22:27,519 WARN c.p.x.c.j.JwtTokenAuthorizationOncePerRequestFilter [${sys:idRequest}] | Message: JWT_TOKEN_DOES_NOT_START_WITH_BEARER_STRING | Payload: v=2.8.0-SNAPSHOT 
+ CallSite: /webjars/springfox-swagger-ui/fonts/titillium-web-v6-latin-700.woff2 | Action: titillium-web-v6-latin-700.woff2 | MethodName: ${sys:methodName} 
+ 
+
+2019-09-16 21:22:29,632 WARN c.p.x.c.j.JwtTokenAuthorizationOncePerRequestFilter [${sys:idRequest}] | Message: JWT_TOKEN_DOES_NOT_START_WITH_BEARER_STRING | Payload: v=2.8.0-SNAPSHOT 
+ CallSite: /webjars/springfox-swagger-ui/fonts/open-sans-v15-latin-700.woff2 | Action: open-sans-v15-latin-700.woff2 | MethodName: ${sys:methodName} 
+ 
+
+2019-09-16 21:22:32,825 WARN c.p.x.c.j.JwtTokenAuthorizationOncePerRequestFilter [${sys:idRequest}] | Message: JWT_TOKEN_DOES_NOT_START_WITH_BEARER_STRING | Payload: v=2.8.0-SNAPSHOT 
+ CallSite: /webjars/springfox-swagger-ui/fonts/source-code-pro-v7-latin-600.woff2 | Action: source-code-pro-v7-latin-600.woff2 | MethodName: ${sys:methodName} 
+ 
+
+2019-09-16 21:22:48,696 WARN c.p.x.c.j.JwtTokenAuthorizationOncePerRequestFilter [${sys:idRequest}] | Message: JWT_TOKEN_DOES_NOT_START_WITH_BEARER_STRING | Payload: v=2.8.0-SNAPSHOT 
+ CallSite: /webjars/springfox-swagger-ui/fonts/titillium-web-v6-latin-regular.woff2 | Action: titillium-web-v6-latin-regular.woff2 | MethodName: ${sys:methodName} 
+ 
+
+2019-09-16 21:22:56,509 WARN c.p.x.c.j.JwtTokenAuthorizationOncePerRequestFilter [${sys:idRequest}] | Message: JWT_TOKEN_DOES_NOT_START_WITH_BEARER_STRING | Payload: com.project.xxxxx.model.JwtRequest@46e1ca6 
+ CallSite: /authenticate | Action: authenticate | MethodName: authenticate 
+ 
+
+2019-09-16 21:26:19,156 WARN c.p.x.c.j.JwtTokenAuthorizationOncePerRequestFilter [${sys:idRequest}] | Message: JWT_TOKEN_DOES_NOT_START_WITH_BEARER_STRING | Payload: com.project.xxxxx.model.JwtRequest@46e1ca6 
+ CallSite: /webjars/springfox-swagger-ui/fonts/titillium-web-v6-latin-600.woff2 | Action: titillium-web-v6-latin-600.woff2 | MethodName: authenticate 
+ 
+
+2019-09-16 21:27:22,279 WARN c.p.x.c.j.JwtTokenAuthorizationOncePerRequestFilter [${sys:idRequest}] | Message: JWT_TOKEN_DOES_NOT_START_WITH_BEARER_STRING | Payload: ${sys:payload} 
+ CallSite: ${sys:callSite} | Action: ${sys:action} | MethodName: ${sys:methodName} 
+ 
+
+2019-09-16 21:27:22,612 WARN c.p.x.c.j.JwtTokenAuthorizationOncePerRequestFilter [${sys:idRequest}] | Message: JWT_TOKEN_DOES_NOT_START_WITH_BEARER_STRING | Payload: ${sys:payload} 
+ CallSite: /swagger-ui.html | Action: swagger-ui.html | MethodName: ${sys:methodName} 
+ 
+
+2019-09-16 21:27:22,614 WARN c.p.x.c.j.JwtTokenAuthorizationOncePerRequestFilter [${sys:idRequest}] | Message: JWT_TOKEN_DOES_NOT_START_WITH_BEARER_STRING | Payload: ${sys:payload} 
+ CallSite: /swagger-ui.html | Action: swagger-ui.html | MethodName: ${sys:methodName} 
+ 
+
+2019-09-16 21:27:22,616 WARN c.p.x.c.j.JwtTokenAuthorizationOncePerRequestFilter [${sys:idRequest}] | Message: JWT_TOKEN_DOES_NOT_START_WITH_BEARER_STRING | Payload: ${sys:payload} 
+ CallSite: /swagger-ui.html | Action: swagger-ui.html | MethodName: ${sys:methodName} 
+ 
+
+2019-09-16 21:27:22,618 WARN c.p.x.c.j.JwtTokenAuthorizationOncePerRequestFilter [${sys:idRequest}] | Message: JWT_TOKEN_DOES_NOT_START_WITH_BEARER_STRING | Payload: ${sys:payload} 
+ CallSite: /swagger-ui.html | Action: swagger-ui.html | MethodName: ${sys:methodName} 
+ 
+
+2019-09-16 21:27:22,618 WARN c.p.x.c.j.JwtTokenAuthorizationOncePerRequestFilter [${sys:idRequest}] | Message: JWT_TOKEN_DOES_NOT_START_WITH_BEARER_STRING | Payload: ${sys:payload} 
+ CallSite: /swagger-ui.html | Action: swagger-ui.html | MethodName: ${sys:methodName} 
+ 
+
+2019-09-16 21:27:22,989 WARN c.p.x.c.j.JwtTokenAuthorizationOncePerRequestFilter [${sys:idRequest}] | Message: JWT_TOKEN_DOES_NOT_START_WITH_BEARER_STRING | Payload: v=2.8.0-SNAPSHOT 
+ CallSite: /webjars/springfox-swagger-ui/swagger-ui.css | Action: swagger-ui.css | MethodName: ${sys:methodName} 
+ 
+
+2019-09-16 21:27:22,990 WARN c.p.x.c.j.JwtTokenAuthorizationOncePerRequestFilter [${sys:idRequest}] | Message: JWT_TOKEN_DOES_NOT_START_WITH_BEARER_STRING | Payload: v=2.8.0-SNAPSHOT 
+ CallSite: /webjars/springfox-swagger-ui/swagger-ui.css | Action: swagger-ui.css | MethodName: ${sys:methodName} 
+ 
+
+2019-09-16 21:27:23,044 WARN c.p.x.c.j.JwtTokenAuthorizationOncePerRequestFilter [${sys:idRequest}] | Message: JWT_TOKEN_DOES_NOT_START_WITH_BEARER_STRING | Payload: v=2.8.0-SNAPSHOT 
+ CallSite: /webjars/springfox-swagger-ui/favicon-32x32.png | Action: favicon-32x32.png | MethodName: ${sys:methodName} 
+ 
+
+2019-09-16 21:27:23,061 WARN c.p.x.c.j.JwtTokenAuthorizationOncePerRequestFilter [${sys:idRequest}] | Message: JWT_TOKEN_DOES_NOT_START_WITH_BEARER_STRING | Payload: v=2.8.0-SNAPSHOT 
+ CallSite: /swagger-resources/configuration/security | Action: security | MethodName: ${sys:methodName} 
+ 
+
+2019-09-16 21:27:23,097 WARN c.p.x.c.j.JwtTokenAuthorizationOncePerRequestFilter [${sys:idRequest}] | Message: JWT_TOKEN_DOES_NOT_START_WITH_BEARER_STRING | Payload: v=2.8.0-SNAPSHOT 
+ CallSite: /swagger-resources | Action: swagger-resources | MethodName: ${sys:methodName} 
+ 
+
+2019-09-16 21:27:23,111 WARN c.p.x.c.j.JwtTokenAuthorizationOncePerRequestFilter [${sys:idRequest}] | Message: JWT_TOKEN_DOES_NOT_START_WITH_BEARER_STRING | Payload: v=2.8.0-SNAPSHOT 
+ CallSite: /swagger-resources | Action: swagger-resources | MethodName: ${sys:methodName} 
+ 
+
+2019-09-16 21:27:23,111 WARN c.p.x.c.j.JwtTokenAuthorizationOncePerRequestFilter [${sys:idRequest}] | Message: JWT_TOKEN_DOES_NOT_START_WITH_BEARER_STRING | Payload: v=2.8.0-SNAPSHOT 
+ CallSite: /swagger-resources | Action: swagger-resources | MethodName: ${sys:methodName} 
+ 
+
+2019-09-16 21:27:23,320 WARN c.p.x.c.j.JwtTokenAuthorizationOncePerRequestFilter [${sys:idRequest}] | Message: JWT_TOKEN_DOES_NOT_START_WITH_BEARER_STRING | Payload: v=2.8.0-SNAPSHOT 
+ CallSite: /webjars/springfox-swagger-ui/fonts/titillium-web-v6-latin-700.woff2 | Action: titillium-web-v6-latin-700.woff2 | MethodName: ${sys:methodName} 
+ 
+
+2019-09-16 21:27:23,320 WARN c.p.x.c.j.JwtTokenAuthorizationOncePerRequestFilter [${sys:idRequest}] | Message: JWT_TOKEN_DOES_NOT_START_WITH_BEARER_STRING | Payload: v=2.8.0-SNAPSHOT 
+ CallSite: /webjars/springfox-swagger-ui/fonts/titillium-web-v6-latin-700.woff2 | Action: titillium-web-v6-latin-700.woff2 | MethodName: ${sys:methodName} 
+ 
+
+2019-09-16 21:27:23,321 WARN c.p.x.c.j.JwtTokenAuthorizationOncePerRequestFilter [${sys:idRequest}] | Message: JWT_TOKEN_DOES_NOT_START_WITH_BEARER_STRING | Payload: v=2.8.0-SNAPSHOT 
+ CallSite: /webjars/springfox-swagger-ui/fonts/titillium-web-v6-latin-700.woff2 | Action: titillium-web-v6-latin-700.woff2 | MethodName: ${sys:methodName} 
+ 
+
+2019-09-16 21:27:23,321 WARN c.p.x.c.j.JwtTokenAuthorizationOncePerRequestFilter [${sys:idRequest}] | Message: JWT_TOKEN_DOES_NOT_START_WITH_BEARER_STRING | Payload: v=2.8.0-SNAPSHOT 
+ CallSite: /webjars/springfox-swagger-ui/fonts/titillium-web-v6-latin-700.woff2 | Action: titillium-web-v6-latin-700.woff2 | MethodName: ${sys:methodName} 
+ 
+
+2019-09-16 21:27:25,637 WARN c.p.x.c.j.JwtTokenAuthorizationOncePerRequestFilter [${sys:idRequest}] | Message: JWT_TOKEN_DOES_NOT_START_WITH_BEARER_STRING | Payload: v=2.8.0-SNAPSHOT 
+ CallSite: /webjars/springfox-swagger-ui/fonts/source-code-pro-v7-latin-300.woff2 | Action: source-code-pro-v7-latin-300.woff2 | MethodName: ${sys:methodName} 
+ 
+
+2019-09-16 21:27:47,941 WARN c.p.x.c.j.JwtTokenAuthorizationOncePerRequestFilter [${sys:idRequest}] | Message: JWT_TOKEN_DOES_NOT_START_WITH_BEARER_STRING | Payload: v=2.8.0-SNAPSHOT 
+ CallSite: /webjars/springfox-swagger-ui/fonts/titillium-web-v6-latin-600.woff2 | Action: titillium-web-v6-latin-600.woff2 | MethodName: ${sys:methodName} 
+ 
+
+2019-09-16 21:30:43,899 WARN c.p.x.c.j.JwtTokenAuthorizationOncePerRequestFilter [${sys:idRequest}] | Message: JWT_TOKEN_DOES_NOT_START_WITH_BEARER_STRING | Payload: v=2.8.0-SNAPSHOT 
+ CallSite: /error | Action: error | MethodName: ${sys:methodName} 
+ 
+
