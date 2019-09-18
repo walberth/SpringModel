@@ -22,6 +22,10 @@ public class XxxxxApplicationTests {
 
     @Test
     public void contextLoads() {
+    }
+
+    /*@Test
+    public void contextLoads() {
         List<Person> test5 = this.personRepository.getPersonListByRowMapper(10, 0);
 
         List<Person> test6 = this.personRepository.getPersonListByRowMapperAndExtrapolation(10, 0);
@@ -115,5 +119,5 @@ public class XxxxxApplicationTests {
                         null));
 
         this.securityService.DeletePerson();
-    }
+    }*/
 }
