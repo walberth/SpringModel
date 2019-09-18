@@ -143,35 +143,72 @@
             </plugin>
 
             <plugin>
-                <groupId>com.spotify</groupId>
+                <groupId>io.fabric8</groupId>
                 <artifactId>docker-maven-plugin</artifactId>
-                <version>1.0.0</version>
+                <version>0.31.0</version>
+
+                <configuration>
+                    <images>
+                        <image>
+                            <alias>service</alias>
+                            <name>fabric8/docker-demo:${project.version}</name>
+
+                            <build>
+                                <from>java:8</from>
+                                <assembly>
+                                    <descriptor>docker-assembly.xml</descriptor>
+                                </assembly>
+                                <cmd>
+                                    <shell>java -jar /maven/service.jar</shell>
+                                </cmd>
+                            </build>
+
+                            <run>
+                                <ports>
+                                    <port>tomcat.port:8080</port>
+                                </ports>
+                                <wait>
+                                    <http>
+                                        <url>http://localhost:8865</url>
+                                    </http>
+                                    <time>10000</time>
+                                </wait>
+                                <links>
+                                    <link>database:db</link>
+                                </links>
+                            </run>
+                        </image>
+
+                        <image>
+                            <alias>database</alias>
+                            <name>postgres:9</name>
+                            <run>
+                                <wait>
+                                    <log>database system is ready to accept connections</log>
+                                    <time>20000</time>
+                                </wait>
+                            </run>
+                        </image>
+                    </images>
+                </configuration>
+
                 <executions>
                     <execution>
-                        <id>default</id>
+                        <id>start</id>
+                        <phase>pre-integration-test</phase>
                         <goals>
                             <goal>build</goal>
-                            <goal>push</goal>
+                            <goal>start</goal>
+                        </goals>
+                    </execution>
+                    <execution>
+                        <id>stop</id>
+                        <phase>post-integration-test</phase>
+                        <goals>
+                            <goal>stop</goal>
                         </goals>
                     </execution>
                 </executions>
-                <configuration>
-                    <imageName>${project.artifactId}</imageName>
-                    <repository>spotify/foobar</repository>
-                    <tag>${project.version}</tag>
-                    <useMavenSettingsForAuth>true</useMavenSettingsForAuth>
-                    <dockerDirectory>${project.basedir}/src/main/</dockerDirectory>
-                    <resources>
-                        <resource>
-                            <targetPath>/</targetPath>
-                            <directory>${project.build.directory}</directory>
-                            <include>${project.build.finalName}.jar</include>
-                        </resource>
-                    </resources>
-                    <buildArgs>
-                        <JAR_FILE>${project.build.finalName}.jar</JAR_FILE>
-                    </buildArgs>
-                </configuration>
             </plugin>
         </plugins>
     </build>
