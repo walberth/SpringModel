@@ -15,7 +15,6 @@ import springfox.documentation.spring.web.plugins.Docket;
 import springfox.documentation.swagger2.annotations.EnableSwagger2;
 import java.util.Collections;
 
-@Aspect
 @EnableSwagger2
 @Configuration
 public class RestConfiguration  implements WebMvcConfigurer {
@@ -27,24 +26,19 @@ public class RestConfiguration  implements WebMvcConfigurer {
         registry.addInterceptor(interceptor);
     }
 
-    @Before("execution(* com.project.xxxxx.service.implementation.*.*(..))")
-    public void before(JoinPoint joinPoint) {
-        System.setProperty("methodName", joinPoint.getSignature().getName());
-    }
-
     @Bean
     public Docket api() {
         return new Docket(DocumentationType.SWAGGER_2)
+                .apiInfo(getApiInfo())
                 .select()
                 .apis(RequestHandlerSelectors.any())
                 .paths(PathSelectors.any())
                 .build()
-                .apiInfo(getApiInfo())
                 .securitySchemes(Collections.singletonList(apiKey()));
     }
 
     private ApiKey apiKey() {
-        return new ApiKey("Authorization", "APIKey", "header");
+        return new ApiKey("Authorization", "Authorization", "header");
     }
 
     private ApiInfo getApiInfo() {
