@@ -52,8 +52,12 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
                 .authenticationEntryPoint(jwtUnAuthorizedResponseAuthenticationEntryPoint)
                     .and().sessionManagement()
                 .sessionCreationPolicy(SessionCreationPolicy.STATELESS)
-                    .and().authorizeRequests().anyRequest()
-                .authenticated();
+                .and().authorizeRequests().anyRequest().permitAll();
+
+        httpSecurity.cors()
+                .and().authorizeRequests()
+                .anyRequest().permitAll()
+                .and().csrf().disable();
 
         httpSecurity.addFilterBefore(jwtAuthenticationTokenFilter, UsernamePasswordAuthenticationFilter.class);
     }
