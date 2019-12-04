@@ -301,11 +301,11 @@ DELIMITER ;
 /****** Object: Procedure validateUserExists  ******/
 DELIMITER $$
 DROP PROCEDURE IF EXISTS validateUserExists $$
-CREATE PROCEDURE validateUserExists(IN username VARCHAR(50))
+CREATE PROCEDURE validateUserExists(IN userparam VARCHAR(50))
 BEGIN
 	SELECT IF(COUNT(0) > 0, 1, 0)
 	FROM xxxxx.user
-	WHERE username = username
+	WHERE username = userparam
 		AND active = true;
 END $$
 DELIMITER ;
