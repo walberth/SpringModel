@@ -10,11 +10,11 @@ public class PersonRowMapper implements RowMapper<Person> {
     @Override
     public Person mapRow(ResultSet rs, int rowNum) throws SQLException {
         Person person = new Person();
-        person.setId(rs.getInt("id"));
+        person.setId(rs.getLong("id"));
         person.setFirstName(rs.getString("firstName"));
-        person.setFatherLastName(rs.getString("fatherLastName"));
-        person.setMotherLastName(rs.getString("motherLastName"));
-        person.setSex(rs.getBoolean("sex"));
+        person.setFatherName(rs.getString("fatherLastName"));
+        person.setMotherName(rs.getString("motherLastName"));
+        person.setSex(rs.getInt("sex"));
         person.setBirthDate(rs.getDate("birthDate").toLocalDate());
         person.setDocument(rs.getString("document"));
         person.setEmail(rs.getString("email"));

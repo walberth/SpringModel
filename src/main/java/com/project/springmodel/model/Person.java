@@ -6,17 +6,19 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
+import org.springframework.data.annotation.Id;
 
 @Getter
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
 public class Person {
-    private int Id;
+    @Id
+    private Long Id;
     private String FirstName;
-    private String FatherLastName;
-    private String MotherLastName;
-    private Boolean Sex;
+    private String FatherName;
+    private String MotherName;
+    private int Sex;
     private LocalDate BirthDate;
     private String Document;
     private String Email;
@@ -30,8 +32,8 @@ public class Person {
         return "Person{" +
                 "Id=" + Id +
                 ", FirstName='" + FirstName + '\'' +
-                ", FatherLastName='" + FatherLastName + '\'' +
-                ", MotherLastName='" + MotherLastName + '\'' +
+                ", FatherLastName='" + FatherName + '\'' +
+                ", MotherLastName='" + MotherName + '\'' +
                 ", Sex=" + Sex +
                 ", BirthDate=" + BirthDate +
                 ", Document='" + Document + '\'' +

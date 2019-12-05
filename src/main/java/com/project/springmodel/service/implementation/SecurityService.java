@@ -49,7 +49,7 @@ public class SecurityService implements ISecurityService {
 
     @Transactional
     public void CreatePerson(Person person, Person person2) {
-        Person personCreated = this.personRepository.createAndGetPersonCreated(person);
+//        Person personCreated = this.personRepository.createAndGetPersonCreated(person);
     }
 
     public void UpdatePerson(Person person) {
@@ -63,6 +63,8 @@ public class SecurityService implements ISecurityService {
     @Transactional
     public Response<JwtResponse> authenticate(JwtRequest request) {
         Response<JwtResponse> response = new Response<>();
+
+        Person test = this.personRepository.findById(52);
 
         if(request.getUsername().equals(Constant.Empty) || request.getPassword().equals(Constant.Empty)) {
             response.setMessage(Message.IndicarUsuarioContrasena);
@@ -144,24 +146,24 @@ public class SecurityService implements ISecurityService {
             return response;
         }
 
-        Integer personCreated = this.personRepository.createPerson(person);
+//        Integer personCreated = this.personRepository.createPerson(person);
 
-        if(personCreated == null || personCreated.equals(0)) {
-            response.setMessage(Message.NoSePudoCrearPersona);
-
-            return response;
-        }
-
-        User userCreated = this.userRepository.createUser(getUserInformation(username,
-                                                                             this.encondePassword(password),
-                                                                             personCreated,
-                                                                             person.getUserRegister()));
-
-        if(userCreated == null) {
-            response.setMessage(Message.NoSePudoCreUsuario);
-
-            return response;
-        }
+//        if(personCreated == null || personCreated.equals(0)) {
+//            response.setMessage(Message.NoSePudoCrearPersona);
+//
+//            return response;
+//        }
+//
+//        User userCreated = this.userRepository.createUser(getUserInformation(username,
+//                                                                             this.encondePassword(password),
+//                                                                             personCreated,
+//                                                                             person.getUserRegister()));
+//
+//        if(userCreated == null) {
+//            response.setMessage(Message.NoSePudoCreUsuario);
+//
+//            return response;
+//        }
 
 
 
@@ -192,14 +194,14 @@ public class SecurityService implements ISecurityService {
                         String.format("FAIL: Sending email to %s reason",
                                 ex.getLocalizedMessage())));*/
 
-        this.sendEmail(Constant.DefaultEmail,
-                "User Created",
-                String.format("%s: %s",
-                        person.getFirstName(),
-                        userCreated.getUsername()));
-
-        response.setData(userCreated);
-        response.setIsWarning(false);
+//        this.sendEmail(Constant.DefaultEmail,
+//                "User Created",
+//                String.format("%s: %s",
+//                        person.getFirstName(),
+//                        userCreated.getUsername()));
+//
+//        response.setData(userCreated);
+//        response.setIsWarning(false);
 
         return response;
     }
