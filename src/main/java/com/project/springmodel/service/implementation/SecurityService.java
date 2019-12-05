@@ -5,6 +5,7 @@ import com.project.springmodel.model.*;
 import com.project.springmodel.repository.IPersonRepository;
 import com.project.springmodel.repository.ISessionRepository;
 import com.project.springmodel.repository.IUserRepository;
+import com.project.springmodel.repository.implementation.PersonRepository;
 import com.project.springmodel.service.ISecurityService;
 import com.project.springmodel.transversal.Constant;
 import com.project.springmodel.transversal.Message;
@@ -19,6 +20,7 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import java.util.Date;
+import java.util.List;
 import java.util.concurrent.CompletableFuture;
 
 import static java.util.Objects.nonNull;
@@ -31,6 +33,10 @@ public class SecurityService implements ISecurityService {
     private JavaMailSender emailSender;
     private AuthenticationManager authenticationManager;
     private JwtUtil jwtUtil;
+
+
+    @Autowired
+    private PersonRepository apersonRepository;
 
     @Autowired
     public SecurityService(IPersonRepository personRepository,
@@ -65,6 +71,10 @@ public class SecurityService implements ISecurityService {
         Response<JwtResponse> response = new Response<>();
 
         Person test = this.personRepository.findById(52);
+
+        List<Person> test2 = this.personRepository.findByName("Cubito");
+
+        List<Person> test1 = this.apersonRepository.getPersonByName("ronald");
 
         if(request.getUsername().equals(Constant.Empty) || request.getPassword().equals(Constant.Empty)) {
             response.setMessage(Message.IndicarUsuarioContrasena);
