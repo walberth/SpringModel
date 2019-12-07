@@ -33,10 +33,7 @@ public class SecurityService implements ISecurityService {
     private JavaMailSender emailSender;
     private AuthenticationManager authenticationManager;
     private JwtUtil jwtUtil;
-
-
-    @Autowired
-    private PersonRepository apersonRepository;
+    private PersonRepository _personRepository;
 
     @Autowired
     public SecurityService(IPersonRepository personRepository,
@@ -44,13 +41,14 @@ public class SecurityService implements ISecurityService {
                            JavaMailSender emailSender,
                            JwtUtil jwtUtil,
                            ISessionRepository sessionRepository,
-                           IUserRepository userRepository){
+                           IUserRepository userRepository, PersonRepository _personRepository){
         this.personRepository = personRepository;
         this.emailSender = emailSender;
         this.sessionRepository = sessionRepository;
         this.userRepository = userRepository;
         this.jwtUtil = jwtUtil;
         this.authenticationManager = authenticationManager;
+        this._personRepository = _personRepository;
     }
 
     @Transactional
@@ -71,10 +69,12 @@ public class SecurityService implements ISecurityService {
         Response<JwtResponse> response = new Response<>();
 
         Person test = this.personRepository.findById(52);
+        this.personRepository.delete(test);
+
 
         List<Person> test2 = this.personRepository.findByName("Cubito");
 
-        List<Person> test1 = this.apersonRepository.getPersonByName("ronald");
+        List<Person> test1 = this._personRepository.getPersonByName("ronald");
 
         if(request.getUsername().equals(Constant.Empty) || request.getPassword().equals(Constant.Empty)) {
             response.setMessage(Message.IndicarUsuarioContrasena);
