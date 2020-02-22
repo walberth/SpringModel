@@ -11,7 +11,7 @@ spring:
     default-encoding: UTF-8
     host: smtp.gmail.com
     username: w.felipe.gutierrez@gmail.com
-    password: atfekmzekliyupob
+    password: harsfrpsejriwavu
     port: 587
     properties.mail.smtp:
       starttls.enable: true
@@ -26,3 +26,5 @@ security:
       uri: /authenticate
       expiration: 604800
       secretKey: mySecret
+
+
